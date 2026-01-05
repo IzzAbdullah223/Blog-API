@@ -1,9 +1,5 @@
 import headerCSS from './header.module.css'
-import { MdOutlineNavigateBefore } from "react-icons/md";
 export function Header(){
-
-
- 
 
     function getRequest(request:string){
         console.log(request)
