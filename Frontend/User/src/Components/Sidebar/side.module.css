@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sideBarContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.searchBarContainer{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #383838;
+    /* width here*/
+}
+
+.searchBarContainer:focus-within{
+   background-color: rgba(106, 106, 106, 0.562);
+}
+
+.searchInput{
+font-size: 1.5rem;
+outline: none;
+border: none;
+background: transparent;
+flex: 1;
+}
+
+.searchBarContainer svg{    
+    background: transparent;
+     
+}
+
+
+.tagsContainer{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    
+}
+.tagsContainer>div{
+    background-color: #cc231c;
+    padding: 3px 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.tagsContainer>div:hover{
+    outline: #689d69 solid 2px;
+}
+
+.clearFilter{
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+}
+
+.clearFilter>svg {
+  transform: rotate(0deg);
+  transition: transform 0.4s ease;
+}
+
+.clearFilter:hover svg,
+svg:hover {
+  transform: rotate(1turn);
+}
+
+.bar{
+    width: 100%;
+    max-width: 600px;
+    background-color: #5a5959;
+    font-size: 1.3em;
+    padding: 10px;
+    border-radius: 3px;
+}
+.bar>div{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px;
+  font-weight: 500;
+}
+
+.bar:hover{
+     background-color: #706f6f;
+}
+
+.randomArticle{
+    cursor: pointer;
+}
+
+.bar>div>a{
+    margin-right: 20px;
+}
+ 
+

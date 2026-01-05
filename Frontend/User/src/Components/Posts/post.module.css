@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.posts{
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.postContainer{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #383838;
+    margin-top: 10px;
+    margin-left: 20px;
+     padding: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+ 
+.postContainer::before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: calc(100% - 9px);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background: #4e5165;
+    transition: 0.2s;
+    border-radius: 3px;
+}
+
+ 
+.postContainer > * {
+    position: relative;
+    z-index: 2;
+}
+
+ 
+.postContainer:hover::before {
+    top: 0;
+}
+
+.content{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+}
+
+.date, p{
+    color:#777777;
+    line-height: 1.75;
+    font-synthesis: none;
+    font-weight: 500;
+}
+
+ 
+
+.title{
+    color: #d79821;
+    margin-bottom: 5px;
+}
+
+.read, .comment{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d79821;
+     
+}
+
+.read svg{
+     margin-top: 10px
+}
+
+.read {
+  transform: scale(1);
+  transition: transform 0.4s ease;
+}
+
+.postContainer:hover .read,
+.read:hover {
+  transform: scale(1.1);
+}
+
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+
+
+ 
