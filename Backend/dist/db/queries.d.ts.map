@@ -1,1 +1,1 @@
-{"version":3,"file":"queries.d.ts","sourceRoot":"","sources":["../../src/db/queries.ts"],"names":[],"mappings":"AAGA,wBAAsB,SAAS;;;;;;;KAG9B"}
+{"version":3,"file":"queries.d.ts","sourceRoot":"","sources":["../../src/db/queries.ts"],"names":[],"mappings":"AAGA,wBAAsB,SAAS;;;;;;;KAG9B;AAED,wBAAsB,QAAQ,CAAC,KAAK,EAAC,MAAM;;;;UAI1C"}

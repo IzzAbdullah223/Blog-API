@@ -510,7 +510,6 @@ export declare const UserScalarFieldEnum: {
     readonly id: "id";
     readonly email: "email";
     readonly password: "password";
-    readonly role: "role";
 };
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
 export declare const PostScalarFieldEnum: {
@@ -524,9 +523,9 @@ export declare const PostScalarFieldEnum: {
 export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum];
 export declare const CommentScalarFieldEnum: {
     readonly id: "id";
+    readonly name: "name";
     readonly text: "text";
     readonly commentedAt: "commentedAt";
-    readonly userId: "userId";
     readonly postId: "postId";
 };
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum];
@@ -559,14 +558,6 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>;
-/**
- * Reference to a field of type 'Role'
- */
-export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>;
-/**
- * Reference to a field of type 'Role[]'
- */
-export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>;
 /**
  * Reference to a field of type 'Boolean'
  */

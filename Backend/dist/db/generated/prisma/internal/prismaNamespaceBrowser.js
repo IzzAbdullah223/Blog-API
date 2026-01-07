@@ -55,8 +55,7 @@ export const TransactionIsolationLevel = {
 export const UserScalarFieldEnum = {
     id: 'id',
     email: 'email',
-    password: 'password',
-    role: 'role'
+    password: 'password'
 };
 export const PostScalarFieldEnum = {
     id: 'id',
@@ -68,9 +67,9 @@ export const PostScalarFieldEnum = {
 };
 export const CommentScalarFieldEnum = {
     id: 'id',
+    name: 'name',
     text: 'text',
     commentedAt: 'commentedAt',
-    userId: 'userId',
     postId: 'postId'
 };
 export const SortOrder = {

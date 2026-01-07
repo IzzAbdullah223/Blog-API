@@ -6,4 +6,9 @@ export declare function findPosts(): Promise<{
     publishedAt: Date;
     authorId: number;
 }[]>;
+export declare function findUser(email: string): Promise<{
+    email: string;
+    id: number;
+    password: string;
+} | null>;
 //# sourceMappingURL=queries.d.ts.map

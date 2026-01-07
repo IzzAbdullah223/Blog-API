@@ -5,3 +5,4 @@ export async function findPosts(){
     const posts = prisma.post.findMany()
     return posts
 }
+

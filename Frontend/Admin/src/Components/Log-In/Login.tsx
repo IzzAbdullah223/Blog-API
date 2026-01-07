@@ -18,11 +18,12 @@ export function Login(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: "Izz",
-                password: '123456'
+                email: "x3zoabdullah@gmail.com",
+                password: 'This is wrong LMAO!'
             })
         });
         setLoading(false)
+
     }
     
 
@@ -40,9 +41,9 @@ export function Login(){
 
 
             {loading?(
-                <div>Loading is now false.... </div>
+                <div>Loading is now true.... </div>
             ):(
-                <div>Loading is now true....</div>
+                <div>Loading is now false....</div>
             )}
 
 
