@@ -16,27 +16,39 @@
     align-items: center;
     padding: 5px;
     background-color: #383838;
-    /* width here*/
+     
+     
 }
 
 .searchBarContainer:focus-within{
    background-color: rgba(106, 106, 106, 0.562);
+   
 }
 
+.searchBarContainer svg {    
+    background: transparent;
+      transition: transform 0.2s;
+}
+
+.searchBarContainer:focus-within svg{
+    transform: rotate(180deg);
+}
+
+ 
 .searchInput{
 font-size: 1.5rem;
 outline: none;
 border: none;
 background: transparent;
 flex: 1;
+color: #c8bb97;
 }
 
 .searchBarContainer svg{    
     background: transparent;
-     
 }
 
-
+ 
 .tagsContainer{
     width: 100%;
     max-width: 600px;
