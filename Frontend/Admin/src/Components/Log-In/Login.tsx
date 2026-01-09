@@ -1,16 +1,30 @@
 import logCSS from './login.module.css'
-import { useState } from 'react';
+import { useState,useRef } from 'react';
+import { LoadIcon } from '../Icons/LoadIcon';
 
 
 export function Login(){
 
-
     const [loading,setLoading]= useState(false)
 
+    const [name,setName] = useState("")
 
+    const [password,setPassword] = useState("")
 
-    async function submitForm(e:React.FormEvent){
-        e.preventDefault()
+    function handleNameChange(event:React.ChangeEvent<HTMLInputElement>){
+       setName(event.target.value)
+    }
+
+    function handlePasswordChange(event:React.ChangeEvent<HTMLInputElement>){
+        setPassword(event.target.value)
+    }
+
+    async function submitForm(event:React.FormEvent){
+
+        event.preventDefault()  
+        console.log(name)
+        console.log(password)
+    
         setLoading(true)
         const response = await fetch('http://localhost:3000/Login',{
             method:'POST',
@@ -18,11 +32,21 @@ export function Login(){
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: "x3zoabdullah@gmail.com",
-                password: 'This is wrong LMAO!'
+                email: name,
+                password: password
             })
-        });
-        setLoading(false)
+        })
+         
+
+        setTimeout(()=>{
+
+              setLoading(false)
+        },2000)
+
+ 
+        
+ 
+        
 
     }
     
@@ -32,21 +56,23 @@ export function Login(){
         <div className={logCSS.pageContainer}>
             <h1>./code/blog/admin</h1>
              
-            <form onSubmit={submitForm}> 
+            <form onSubmit={submitForm} className={logCSS.logForm}> 
                 <h1>Please login to continue!</h1>
-                <input type='text' placeholder='Username' name='username' required></input>
-                <input type='text' placeholder='Password' name='password' required></input>
-            <button type='submit'>Login</button>
+                <input type='text' placeholder='Username' value={name} onChange={handleNameChange} className={logCSS.logInp}  required></input>
+                <input type='password' placeholder='Password' value={password} onChange={handlePasswordChange} className={logCSS.logInp}  required></input>
+            <button type='submit' className={logCSS.logBTN}>Login</button>
             </form>
-
-
             {loading?(
-                <div>Loading is now true.... </div>
+                <div className={logCSS.loadingContainer}>
+                <LoadIcon size={75}></LoadIcon>
+                </div>
+                
             ):(
-                <div>Loading is now false....</div>
+                <div className={logCSS.errorContainer}> 
+                <p>Invalid credentials</p>
+                </div>
             )}
-
-
         </div>
+        
     )
 }
