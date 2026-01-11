@@ -4,6 +4,7 @@ import { RiResetLeftLine } from "react-icons/ri";
 import { FaRandom } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 export function Sidebar(){
 
             const tags=["JavaScript","HTML","CSS","TypeScript","React","AI","MongoDB","Mindset","Node.js","Vite","Express","Git",
@@ -25,7 +26,7 @@ export function Sidebar(){
             
                 <div className={sideCSS.tagsContainer}>
                     {tags.map((tag)=>(
-                        <div key={tag}>{tag}</div>
+                        <NavLink key={tag} className={({isActive})=>isActive? sideCSS.active: ''} to={`/${tag}`}>{tag}</NavLink>
                     ))}
                 </div>
 
@@ -50,9 +51,6 @@ export function Sidebar(){
                         <a href='https://www.linkedin.com/in/izz-eldin-abdallah-1782172a6/'><FaLinkedin size={30} color='#c8bb97'></FaLinkedin></a>
                     </div>
                 </div>
-            
-
-
         </div>
         
     )

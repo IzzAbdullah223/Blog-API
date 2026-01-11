@@ -2,8 +2,10 @@ import {} from 'express';
 import * as db from '../db/queries.js';
 import { title } from 'node:process';
 export async function getPosts(req, res) {
+    console.log(req.query);
+    const sortBy = req.query.sortBy;
     try {
-        const posts = await db.getUsers();
+        const posts = await db.getPosts(sortBy);
         return res.status(200).json(posts);
     }
     catch (error) {

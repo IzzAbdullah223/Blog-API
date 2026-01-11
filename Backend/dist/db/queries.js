@@ -1,7 +1,24 @@
 import { prisma } from './libs/prisma.js';
-export async function findPosts() {
-    const posts = await prisma.post.findMany();
-    return posts;
+export async function getPosts(sortBy) {
+    console.log(sortBy);
+    switch (sortBy) {
+        case "All":
+            return await prisma.post.findMany();
+        case "Latest":
+            return await prisma.post.findMany({
+                orderBy: { publishedAt: "desc" }
+            });
+        case "Visual Studio Code":
+            return await prisma.post.findMany({
+                where: {
+                    tag: {
+                        some: {
+                            name: sortBy
+                        }
+                    }
+                }
+            });
+    }
 }
 export async function createPost(title, text) {
     await prisma.post.create({

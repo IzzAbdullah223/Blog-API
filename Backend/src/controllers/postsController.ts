@@ -4,9 +4,10 @@ import { title } from 'node:process'
  
 
 export async function getPosts(req:Request,res:Response){
-
+     console.log(req.query)
+      const sortBy = req.query.sortBy as string
      try{
-     const posts = await db.getUsers()
+     const posts = await db.getPosts(sortBy)
      
           return res.status(200).json(posts)
      }

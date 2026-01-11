@@ -41,7 +41,8 @@ export const AnyNull = runtime.AnyNull;
 export const ModelName = {
     User: 'User',
     Post: 'Post',
-    Comment: 'Comment'
+    Comment: 'Comment',
+    Tags: 'Tags'
 };
 /*
  * Enums
@@ -70,6 +71,11 @@ export const CommentScalarFieldEnum = {
     name: 'name',
     text: 'text',
     commentedAt: 'commentedAt',
+    postId: 'postId'
+};
+export const TagsScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
     postId: 'postId'
 };
 export const SortOrder = {

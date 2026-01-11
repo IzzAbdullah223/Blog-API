@@ -7,7 +7,6 @@ import appCSS from '../App.module.css'
 function App() {
   return(
         <div className={appCSS.pageContainer}>
-
             <div className={appCSS.leftSide}>
             <Header></Header>
              <Post></Post>

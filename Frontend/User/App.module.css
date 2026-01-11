@@ -12,11 +12,23 @@ body{
 }
 .pageContainer{
     display: flex;
-    justify-content: space-between;
-    outline: blue solid;
+    gap: 40px;
+    padding: 65px;
+ 
 }
 
 .leftSide{
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    outline: red solid;
+}
+
+.rightSide{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 450px;
 }

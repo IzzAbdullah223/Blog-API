@@ -234,6 +234,7 @@ export declare const ModelName: {
     readonly User: "User";
     readonly Post: "Post";
     readonly Comment: "Comment";
+    readonly Tags: "Tags";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export interface TypeMapCb<GlobalOmitOptions = {}> extends runtime.Types.Utils.Fn<{
@@ -246,7 +247,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "user" | "post" | "comment";
+        modelProps: "user" | "post" | "comment" | "tags";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -472,6 +473,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
+        Tags: {
+            payload: Prisma.$TagsPayload<ExtArgs>;
+            fields: Prisma.TagsFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.TagsFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.TagsFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                findFirst: {
+                    args: Prisma.TagsFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.TagsFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                findMany: {
+                    args: Prisma.TagsFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[];
+                };
+                create: {
+                    args: Prisma.TagsCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                createMany: {
+                    args: Prisma.TagsCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.TagsCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[];
+                };
+                delete: {
+                    args: Prisma.TagsDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                update: {
+                    args: Prisma.TagsUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.TagsDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.TagsUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.TagsUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[];
+                };
+                upsert: {
+                    args: Prisma.TagsUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>;
+                };
+                aggregate: {
+                    args: Prisma.TagsAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateTags>;
+                };
+                groupBy: {
+                    args: Prisma.TagsGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.TagsGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.TagsCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.TagsCountAggregateOutputType> | number;
+                };
+            };
+        };
     };
 } & {
     other: {
@@ -529,6 +604,12 @@ export declare const CommentScalarFieldEnum: {
     readonly postId: "postId";
 };
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum];
+export declare const TagsScalarFieldEnum: {
+    readonly id: "id";
+    readonly name: "name";
+    readonly postId: "postId";
+};
+export type TagsScalarFieldEnum = (typeof TagsScalarFieldEnum)[keyof typeof TagsScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";
@@ -675,6 +756,7 @@ export type GlobalOmitConfig = {
     user?: Prisma.UserOmit;
     post?: Prisma.PostOmit;
     comment?: Prisma.CommentOmit;
+    tags?: Prisma.TagsOmit;
 };
 export type LogLevel = 'info' | 'query' | 'warn' | 'error';
 export type LogDefinition = {

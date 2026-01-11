@@ -16,8 +16,7 @@
     align-items: center;
     padding: 5px;
     background-color: #383838;
-     
-     
+    width: 100%;
 }
 
 .searchBarContainer:focus-within{
@@ -51,21 +50,26 @@ color: #c8bb97;
  
 .tagsContainer{
     width: 100%;
-    max-width: 600px;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     
 }
-.tagsContainer>div{
+.tagsContainer>a{
     background-color: #cc231c;
     padding: 3px 1rem;
     border-radius: 2px;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
-.tagsContainer>div:hover{
+.tagsContainer>a:hover{
     outline: #689d69 solid 2px;
+}
+
+.tagsContainer a.active{
+background-color: #689d69;
 }
 
 .clearFilter{
@@ -87,7 +91,6 @@ svg:hover {
 
 .bar{
     width: 100%;
-    max-width: 600px;
     background-color: #5a5959;
     font-size: 1.3em;
     padding: 10px;

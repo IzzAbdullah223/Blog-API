@@ -5,21 +5,25 @@
 }
 
 .headerContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
     font-family: 'Ubuntu';
     color: #c8bb97;
-    display: flex;
-    
-    
+}
+
+.headerContainer h1{
+    font-size: 2.9rem;
 }
 
 .headerContainer span{
     color: #689d69;
 }
- 
+
 .selections{
 display: flex;
-justify-content: center;
-gap: 140px;
+justify-content: space-around;
 font-size: 1.6rem;
 }
 
@@ -29,6 +33,10 @@ font-size: 1.6rem;
     cursor: pointer;
     font-weight: 500;
     position: relative;
+}
+
+.selections a:visited {
+     color: inherit;
 }
 
 .selections a:hover{
@@ -52,14 +60,17 @@ font-size: 1.6rem;
     width: 100%;
 }
 
-.headerContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;  
+.selections a.active::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #689d69;
+    border-radius: 2px;
 }
-
-.headerContainer h1{
-    font-size: 2.9rem;
-}
-
+ 
+ 
+ 
  

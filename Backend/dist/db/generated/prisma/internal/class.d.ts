@@ -144,6 +144,17 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get comment(): Prisma.CommentDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.tags`: Exposes CRUD operations for the **Tags** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Tags
+      * const tags = await prisma.tags.findMany()
+      * ```
+      */
+    get tags(): Prisma.TagsDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(): PrismaClientConstructor;
 //# sourceMappingURL=class.d.ts.map
