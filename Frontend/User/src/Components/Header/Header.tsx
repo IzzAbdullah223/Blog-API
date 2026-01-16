@@ -8,7 +8,7 @@ export function Header(){
                     <h1><span>./</span>code<span>/</span>blog</h1>
                 <div className={headerCSS.selections}>
                     <NavLink to="/All"className={({ isActive }) => isActive ? headerCSS.active : ''}>
-                         All Article
+                         All Articles
                     </NavLink>
                     <NavLink to="/Latest"className={({ isActive }) => isActive ? headerCSS.active : ''}>
                          Latest Articles

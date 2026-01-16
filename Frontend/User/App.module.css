@@ -12,20 +12,23 @@ body{
 
 .pageContainer{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     outline: red solid;
+    margin-top: 40px;
+    padding: 30px;
 }
 
 .leftSide{
     display: flex;
     flex-direction: column;
+    gap: 60px;
     outline: blue solid;
     flex-shrink: 0;
     min-width: 0;
 }
 
 .rightSide{
-    outline: black solid;
     flex-shrink: 1;
     width: 450px;
+    min-width: 100px;
 }
