@@ -3,11 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.PostLoadWrapper{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    flex-shrink: 0;
+    min-width: 0;
+    width: 1200px;
+    outline: blue solid;
+}
 .Posts{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    width: 1092px;
+    gap: 15px;
 }
 
 .postContainer{
@@ -21,6 +31,23 @@
     color: inherit;
     width: 300px;
     flex-shrink: 0;
+    padding: 20px;
+}
+
+/* loading container start here*/
+.LoadingContainer{
+    display: flex;
+    justify-content: center;
+    background-color: #383838;
+    padding: 20px;
+    border-radius: 5px;
+    width: 850px;
+    height: 60vh;
+}
+.MagnifyContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
  
 .postContainer::before {
@@ -92,14 +119,4 @@ p{
     font-weight: 500;
     line-height: 1.75;
 }
-/* loading container start here*/
-.LoadingContainer{
-    background-color: #383838;
-    padding: 20px;
-    border-radius: 5px;
-}
-.MagnifyContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+ 

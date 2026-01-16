@@ -5,10 +5,9 @@
 }
 
 .headerContainer{
-    display: flex;
-    flex-direction: column;
     gap: 30px;
     color: #c8bb97;
+    outline: green solid;
 }
 
 .headerContainer h1{
@@ -21,11 +20,11 @@
 
 .selections{
 display: flex;
-justify-content: center;
-gap: 180px;
-margin-right: 100px;
+gap: 60px;
 font-size: 1.6rem;
 }
+
+ 
 
 
 

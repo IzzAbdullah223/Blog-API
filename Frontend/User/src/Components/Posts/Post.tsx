@@ -30,6 +30,7 @@ export function Post(){
 
     const [data,setData]=useState<postData[] | null>(null)
     async function getPosts(){
+        setData(null)
 
         
   
@@ -42,8 +43,10 @@ export function Post(){
         })
  
         const json = await response.json() as postData[]
-
-        setData(json)
+        setTimeout(()=>{
+             setData(json)
+        },2000)
+        
        
     }
 
@@ -74,65 +77,37 @@ export function Post(){
 }, [data]);
    
 return (
-  
-    !data ? (
+  <div className={postCSS.PostLoadWrapper}>
+    {!data ? (
       // First return - when no data
       <div className={postCSS.LoadingContainer}>
         <div className={postCSS.MagnifyContainer}> 
-            <MagnifyIcon size={90}></MagnifyIcon>
+          <MagnifyIcon size={90}></MagnifyIcon>
         </div>  
       </div>
-      
     ) : (
       // Second return - when data exists
       <div className={postCSS.Posts}>
-
         {data.map((post)=>(
-            <Link key={post.id} to={`/Article/${post.id}`} className={postCSS.postContainer}> 
-                <div className={postCSS.date}>{formatDate(post.publishedAt)}</div>
-                <h1 className={postCSS.title}>{post.title}</h1>
-                <p className={postCSS.content}>{stripAllHtml(post.text)}</p>
-                <div className={postCSS.bottom}> 
-                    <div className={postCSS.comment}>
-                        <div>30</div>
-                        <FaRegCommentAlt></FaRegCommentAlt>
-                    </div>
-
-                    <div className={postCSS.read}>
-                        <div>Read more</div>
-                        <div><FaArrowRight></FaArrowRight></div>
-                    </div>
-                </div>
-            </Link>
-        ))}
-
-        {/*<div className={postCSS.postContainer}>
-
-                <div className={postCSS.date}>Monday, 06. March 2023</div>
-                <h1  className={postCSS.title}>Time-Saving Shortcuts and Features in Visual Studio Code: Emmet</h1>
-                <p className={postCSS.content}>The Emmet tool in Visual Studio Code is a great feature that helps you speed up writing HTML.
-                In Visual Studio Code, Emmet works by recognizing the abbreviations or shortcuts that you type
-                and expands them into complete HTML or CSS code.
-                </p>
-
-                <div className={postCSS.bottom}> 
-                    <div className={postCSS.comment}>
-                        <div>30</div>
-                        <FaRegCommentAlt></FaRegCommentAlt>
-                    </div>
-
-                <div className={postCSS.read}>
-                    <div>Read more</div>
-                    <div><FaArrowRight></FaArrowRight></div>
-                </div>
+          <Link key={post.id} to={`/Article/${post.id}`} className={postCSS.postContainer}> 
+            <div className={postCSS.date}>{formatDate(post.publishedAt)}</div>
+            <h1 className={postCSS.title}>{post.title}</h1>
+            <p className={postCSS.content}>{stripAllHtml(post.text)}</p>
+            <div className={postCSS.bottom}> 
+              <div className={postCSS.comment}>
+                <div>30</div>
+                <FaRegCommentAlt></FaRegCommentAlt>
+              </div>
+              <div className={postCSS.read}>
+                <div>Read more</div>
+                <div><FaArrowRight></FaArrowRight></div>
+              </div>
             </div>
-            
-        </div>    */}
-
-
+          </Link>
+        ))}
       </div>
-    )
-  
+    )}
+  </div>
 )
 }
 

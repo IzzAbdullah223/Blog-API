@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 export function Header(){
 
     return(
+       
         <div className={headerCSS.headerContainer}>
 
                     <h1><span>./</span>code<span>/</span>blog</h1>
@@ -18,5 +19,6 @@ export function Header(){
                     </NavLink>
                         </div>
         </div>
+ 
     )
 }

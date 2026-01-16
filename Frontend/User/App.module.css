@@ -12,8 +12,7 @@ body{
 
 .pageContainer{
     display: flex;
-    justify-content: center;
-    outline: red solid;
+    justify-content: space-between;
     margin-top: 40px;
     padding: 30px;
 }
@@ -22,7 +21,10 @@ body{
     display: flex;
     flex-direction: column;
     gap: 60px;
-    outline: blue solid;
+    margin: 0 auto;
+    min-height: 90vh;
+    outline: rgb(140, 0, 255) solid;
+    flex: 1;
     flex-shrink: 0;
     min-width: 0;
 }
@@ -31,4 +33,5 @@ body{
     flex-shrink: 1;
     width: 450px;
     min-width: 100px;
+    outline: red solid;
 }
