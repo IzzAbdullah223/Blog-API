@@ -13,9 +13,7 @@ export async function getPosts(req, res) {
     }
 }
 export async function getPost(req, res) {
-    console.log("Is this function even running?");
     const postID = Number(req.params.PostId);
-    console.log(postID);
     try {
         const post = await db.getPost(postID);
         return res.status(200).json(post);
@@ -48,6 +46,29 @@ export async function deletePost(req, res) {
     catch (err) {
         res.status(500).json({
             message: "Failed to delete post "
+        });
+    }
+}
+export async function updatePublish(req, res) {
+    const PostId = Number(req.params.PostId);
+    const publishValue = req.body.publishValue;
+    try {
+        if (publishValue) {
+            await db.unPublishPost(PostId);
+            res.status(200).json({
+                message: "Post unpublished"
+            });
+        }
+        else {
+            await db.publishPost(PostId);
+            res.status(200).json({
+                message: "Post published"
+            });
+        }
+    }
+    catch (err) {
+        res.status(500).json({
+            Message: "Failed to update post"
         });
     }
 }

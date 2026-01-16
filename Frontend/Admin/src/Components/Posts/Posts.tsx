@@ -15,7 +15,7 @@ export function Posts(){
      const[data,setData] = useState<postData[] | null>(null)
      
     async function getPosts(){
-        const response = await fetch('http://localhost:3000/Posts?sortBy=All',{
+        const response = await fetch('http://localhost:3000/Posts?sortBy=Admin',{
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'

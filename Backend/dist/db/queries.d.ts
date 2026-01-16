@@ -22,4 +22,6 @@ export declare function getPost(id: number): Promise<({
     authorId: number;
 }) | null>;
 export declare function deletePost(id: number): Promise<void>;
+export declare function publishPost(id: number): Promise<void>;
+export declare function unPublishPost(id: number): Promise<void>;
 //# sourceMappingURL=queries.d.ts.map

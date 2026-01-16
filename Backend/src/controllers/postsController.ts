@@ -68,6 +68,34 @@ export async function deletePost(req:Request,res:Response){
  
 }
 
+export async function updatePublish(req:Request,res:Response){
+          const PostId = Number(req.params.PostId)
+          const publishValue = req.body.publishValue as boolean
+
+           
+
+          try{
+               if(publishValue){
+                    await db.unPublishPost(PostId)
+                    res.status(200).json({
+                         message:"Post unpublished"
+                    })
+               }
+               else{
+                    await db.publishPost(PostId)
+                    res.status(200).json({
+                         message:"Post published"
+                    })
+               }
+               
+          }catch(err){
+               res.status(500).json({
+                    Message:"Failed to update post"
+               })
+          }
+
+}
+
 
 
  

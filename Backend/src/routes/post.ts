@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPosts,createPost,deletePost,getPost } from "../controllers/postsController.js";
+import { getPosts,createPost,deletePost,getPost,updatePublish } from "../controllers/postsController.js";
 import { verifyToken } from "../controllers/authController.js";
 
 
@@ -10,6 +10,8 @@ postRoute.get('/Posts',getPosts) //verifyToken add this later on
 postRoute.get('/Posts/:PostId',getPost)  
 postRoute.post('/Posts',createPost) //verify token add this later on 
 postRoute.delete('/Posts/:PostId',deletePost)
+postRoute.put('/Posts/:PostId',updatePublish)
+
   
 
 

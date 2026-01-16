@@ -7,5 +7,6 @@ export declare function getPosts(req: Request, res: Response): Promise<Response<
 export declare function getPost(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
 export declare function createPost(req: Request<{}, {}, createPostBody>, res: Response): Promise<void>;
 export declare function deletePost(req: Request, res: Response): Promise<void>;
+export declare function updatePublish(req: Request, res: Response): Promise<void>;
 export {};
 //# sourceMappingURL=postsController.d.ts.map
