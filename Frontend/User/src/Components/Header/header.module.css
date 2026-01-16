@@ -7,9 +7,6 @@
 .headerContainer{
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    width: 100%;
-    font-family: 'Ubuntu';
     color: #c8bb97;
 }
 
@@ -23,10 +20,12 @@
 
 .selections{
 display: flex;
-justify-content: space-around;
 font-size: 1.6rem;
 }
 
+
+
+/*Selections animations */
 .selections a{
     text-decoration: none;
     text-transform: capitalize;

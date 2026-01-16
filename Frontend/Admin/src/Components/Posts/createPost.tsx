@@ -67,68 +67,9 @@ export function CreatePost(){
                          'bold italic forecolor backcolor | alignleft aligncenter ' +
                          'alignright alignjustify | bullist numlist outdent indent | ' +
                          'codesample | removeformat | help',
-content_style: `
-   body { 
-    font-family:Ubuntu,Helvetica,Arial,sans-serif; 
-    font-size:1.2rem;
-    background-color: #383838;
-    color: #c5c8c6;
-    font-weight: 500;
-    line-height: 1.75;
-  }
-
-  a {
-   color: #458587;
-   font-weight: bold;
-   text-decoration:none;
-  }
-  
-  a:hover{
-  color: #6aeaee98;
-  }
-
-    ::selection {
-    background-color: #689d69;
-    color: #c8bb97;
-  }
-  
-  ::-moz-selection {
-    background-color: #689d69;
-    color: #c8bb97;
-  }
-  
-  code[class*="language-"], 
-  pre[class*="language-"] {
-    background: #27212e;
-    color: #fff;
-    font-weight: bold;
-    font-size: 1em;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    line-height: 1.5;
-    tab-size: 2;
-    text-shadow: none !important;
-  }
-  
-  pre[class*="language-"] {
-    padding: 1em;
-    margin: .5em 0;
-    overflow: auto;
-    border-radius: .5em;
-  }
-
-  .token.tag { color: #74dfc4 !important; }
-  .token.punctuation { color: #7b6995 !important; }
-  .token.attr-name { color: #eb64b9 !important; }
-  .token.property { color: #40b4c4 !important; }
-  .token.attr-value { color: #b4dce7!important; }
- .token.namespace { color: #40b4c4!important; }
-`
-                                }}
-/>
+                content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }'
+            }}
+          />
           <button type="submit">Submit post</button> 
         </form>
        

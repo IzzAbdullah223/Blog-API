@@ -5,6 +5,7 @@ import { FaRegCommentAlt } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import { MagnifyIcon } from '../Icons/Magnify';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -31,7 +32,7 @@ export function Post(){
     async function getPosts(){
 
         
-        console.log(sortBy)
+  
         const response = await fetch(`http://localhost:3000/Posts?sortBy=${sortBy}`, {
             method:"GET",
             headers:{
@@ -39,10 +40,8 @@ export function Post(){
             }
 
         })
-        console.log(response)
+ 
         const json = await response.json() as postData[]
-
-        console.log(json)
 
         setData(json)
        
@@ -89,7 +88,7 @@ return (
       <div className={postCSS.Posts}>
 
         {data.map((post)=>(
-            <div className={postCSS.postContainer} key={post.id}>
+            <Link key={post.id} to={`/Article/${post.id}`} className={postCSS.postContainer}> 
                 <div className={postCSS.date}>{formatDate(post.publishedAt)}</div>
                 <h1 className={postCSS.title}>{post.title}</h1>
                 <p className={postCSS.content}>{stripAllHtml(post.text)}</p>
@@ -104,7 +103,7 @@ return (
                         <div><FaArrowRight></FaArrowRight></div>
                     </div>
                 </div>
-            </div>
+            </Link>
         ))}
 
         {/*<div className={postCSS.postContainer}>

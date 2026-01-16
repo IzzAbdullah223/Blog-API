@@ -1,10 +1,16 @@
 import {type Request, type Response} from 'express'
 import * as db from '../db/queries.js'
-import { title } from 'node:process'
+ 
+
+
+
+interface createPostBody{
+     title:string
+     text:string
+}
  
 
 export async function getPosts(req:Request,res:Response){
-     console.log(req.query)
       const sortBy = req.query.sortBy as string
      try{
      const posts = await db.getPosts(sortBy)
@@ -19,10 +25,19 @@ export async function getPosts(req:Request,res:Response){
  
 }
 
-interface createPostBody{
-     title:string
-     text:string
+export async function getPost(req:Request,res:Response){ // for viewing a single post 
+     const postID = Number(req.params.PostId)
+     try{
+          const post = await db.getPost(postID)
+          return res.status(200).json(post)
+     }
+     catch(err){
+          return res.status(500).json({
+               Message: "Failed to fetch post"
+          })
+     }
 }
+ 
 
 export async function createPost(req:Request<{},{},createPostBody>,res:Response){
      
@@ -35,6 +50,22 @@ export async function createPost(req:Request<{},{},createPostBody>,res:Response)
      catch(err){
           res.status(500).json({message:"Failed to create ost."})
      }
+}
+
+export async function deletePost(req:Request,res:Response){
+     const PostId = Number(req.params.PostId)
+     
+     try{
+          await db.deletePost(PostId)
+          res.status(200).json({
+               message:"Post deleted sucessfuly"
+          })
+     }catch(err){
+          res.status(500).json({
+               message:"Failed to delete post "
+          })
+     }
+ 
 }
 
 

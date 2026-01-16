@@ -2,7 +2,6 @@ import {prisma} from './libs/prisma.js'
  
 
 export async function getPosts(sortBy:string){
-    console.log(sortBy)
     switch(sortBy){
         case "All":
             return await prisma.post.findMany()
@@ -37,8 +36,17 @@ export async function createPost(title:string,text:string){
     })
 }
 
-export async function getUsers(){
-    const users = await  prisma.user.findMany()
-    return users
+export async function getPost(id:number){
+    return await prisma.post.findUnique({
+        where:{id:id},
+        include:{tag:true}
+    })
 }
 
+export async function deletePost(id:number){
+     await prisma.post.delete({
+        where:{id:id}
+    }) 
+}
+
+ 

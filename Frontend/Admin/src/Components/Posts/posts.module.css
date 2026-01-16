@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.postsContainer{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.postContainer{
+ display: flex;
+ gap: 20px;
+}

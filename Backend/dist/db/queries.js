@@ -1,6 +1,5 @@
 import { prisma } from './libs/prisma.js';
 export async function getPosts(sortBy) {
-    console.log(sortBy);
     switch (sortBy) {
         case "All":
             return await prisma.post.findMany();
@@ -29,8 +28,16 @@ export async function createPost(title, text) {
         }
     });
 }
-export async function getUsers() {
-    const users = await prisma.user.findMany();
-    return users;
+export async function getPost(id) {
+    console.log(id);
+    return await prisma.post.findUnique({
+        where: { id: id },
+        include: { tag: true }
+    });
+}
+export async function deletePost(id) {
+    await prisma.post.delete({
+        where: { id: id }
+    });
 }
 //# sourceMappingURL=queries.js.map

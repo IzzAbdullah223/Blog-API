@@ -7,9 +7,19 @@ export declare function getPosts(sortBy: string): Promise<{
     authorId: number;
 }[] | undefined>;
 export declare function createPost(title: string, text: string): Promise<void>;
-export declare function getUsers(): Promise<{
-    email: string;
+export declare function getPost(id: number): Promise<({
+    tag: {
+        id: number;
+        name: string;
+        postId: number;
+    }[];
+} & {
     id: number;
-    password: string;
-}[]>;
+    title: string;
+    text: string;
+    published: boolean;
+    publishedAt: Date;
+    authorId: number;
+}) | null>;
+export declare function deletePost(id: number): Promise<void>;
 //# sourceMappingURL=queries.d.ts.map
