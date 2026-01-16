@@ -1,31 +1,8 @@
-/**{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-     background-color: #2c2c2c;
-     color: #c8bb97;
-    font-family: 'Ubuntu';
-}
-.pageContainer{
-    display: flex;
-    gap: 40px;
-    padding: 65px;
-}
-
-.leftSide{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
-}
-
-.rightSide{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}*/
 
 body{
     background-color: #2c2c2c;
@@ -35,13 +12,20 @@ body{
 
 .pageContainer{
     display: flex;
+    justify-content: space-between;
+    outline: red solid;
 }
 
 .leftSide{
     display: flex;
     flex-direction: column;
+    outline: blue solid;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .rightSide{
-    
+    outline: black solid;
+    flex-shrink: 1;
+    width: 450px;
 }
