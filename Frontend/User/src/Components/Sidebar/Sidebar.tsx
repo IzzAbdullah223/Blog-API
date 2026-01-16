@@ -11,6 +11,8 @@ export function Sidebar(){
                 "Visual Studio Code","Tools"
     ]
 
+  
+
 
     return(
         <div className={sideCSS.sideBarContainer}>
@@ -31,13 +33,13 @@ export function Sidebar(){
                 </div>
 
 
-                <div className={sideCSS.clearFilter}>
+                <NavLink to={'/All'}  className={sideCSS.clearFilter}>
                     <div>Clear filter</div>
                     <RiResetLeftLine size={20}></RiResetLeftLine>
-                </div>
+                </NavLink>
 
 
-                <div className={`${sideCSS.bar} ${sideCSS.randomArticle}`}>
+                <div className={`${sideCSS.bar} ${sideCSS.randomArticle}`}  >
                     <div> 
                         <div>Random article</div>
                         <FaRandom></FaRandom>

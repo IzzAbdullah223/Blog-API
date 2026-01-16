@@ -76,6 +76,8 @@ background-color: #689d69;
      display: flex;
      align-items: center;
      gap: 10px;
+     text-decoration: none;
+     color: inherit;
 }
 
 .clearFilter>svg {
@@ -113,5 +115,8 @@ svg:hover {
 .bar>div>a{
     margin-right: 20px;
 }
+
+ 
+
  
 
