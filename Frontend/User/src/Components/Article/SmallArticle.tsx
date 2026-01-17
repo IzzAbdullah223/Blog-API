@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom"
+import { useParams,NavLink } from "react-router-dom"
 import { useEffect, useState } from "react"
 import CSS from './art.module.css'
-import { FaGlasses } from "react-icons/fa";
-import './prism.costume.css' 
+import { FaGlasses,FaArrowLeft,FaRegCommentAlt  } from "react-icons/fa";
+import './prism.costume.css'
+import { Modal } from "../Modal/Modal";
 
 declare global {
   interface Window {
@@ -11,6 +12,7 @@ declare global {
 }
 
 export function SmallArticle(){
+
  
     interface tags{
         name:string
@@ -25,10 +27,13 @@ export function SmallArticle(){
     }
     
     const[data,setData]=useState<postData | null>(null)
+    const[modal,setModal]= useState(false)
     const{Id} = useParams()
     
+    const toggleModal = () =>{
+         setModal(!modal)
+    }
 async function getArticle(){
-    console.log(Id)
     const response = await fetch(`http://localhost:3000/Posts/${Id}`, {
         method:"GET",
         headers:{
@@ -56,23 +61,38 @@ async function getArticle(){
         })
     }
     
-    return(<div className={CSS.ArticleContainer}>
+    return(
+<div className={CSS.Container}> 
+    <div className={CSS.ArticleContainer}>
             <div className={CSS.Top}>
                 <div>{data?.publishedAt ? formatDate(data.publishedAt) : 'Loading...'}</div>
                 <div>By Izz</div>
             </div>
-            <h1>{data?.title}</h1>
-            <div className={CSS.tags}>
-                {data?.tag.map((tag)=>(
-                    <div key={tag.name}>{tag.name}</div>
-                ))}
-            </div>
-            <div className={CSS.readTime}>
-                <FaGlasses color="grey" size={25} />
-                4 min
+            <div className={CSS.belowTop}> 
+                <h1>{data?.title}</h1>
+                <div className={CSS.tags}>
+                    {data?.tag.map((tag)=>(
+                        <div key={tag.name}>Mindset</div>
+                    ))}
+                </div>
+                <div className={CSS.readTime}>
+                    <FaGlasses color="grey" size={20} />
+                    2 min
+                </div>
             </div>
             {data && (
-    <div className={CSS.articleContent} dangerouslySetInnerHTML={{ __html: data.text }} />)}
-    </div>)
+    <div className={CSS.articleContent} dangerouslySetInnerHTML={{ __html: data.text.trim() }} />)}
+    <NavLink  to="/About"className={({ isActive }) => isActive ? CSS.active : ''}>
+            <FaArrowLeft/>
+            <div>go back</div>
+    </NavLink>
+    <h2 className={CSS.comments}>13 Comments</h2>
+    <div className={CSS.commentContainer} onClick={toggleModal}>
+        <h2>Add comment</h2>
+        <FaRegCommentAlt size={25} />
+    </div>
+    </div>
+    {modal && <Modal toggleModal={toggleModal} />}
+</div> )
     
 }

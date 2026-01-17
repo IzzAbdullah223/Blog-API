@@ -1,0 +1,105 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(3, 3, 3, 0.774);
+}
+.modalContent {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #383838; 
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 1000px;
+    min-width: 700px;
+}
+
+.modalContent h1{
+    color: #d79821;
+    margin-bottom: 20px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #cc231c;
+    color: #c8bb97;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    transition: background-color .2s ease
+}
+
+.closeModal:hover{
+     background-color: #cc221cc2;
+     cursor: pointer;
+     outline: 1px solid rgba(128, 128, 128, 0.658);
+}
+
+form{
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    padding: 15px;
+}
+
+input,textarea{
+    background-color: transparent;
+    border: none;
+    outline: 1px solid #d79821;
+    color: #d79821;
+    font-size: 1.4rem;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+input:focus,textarea:focus{
+    outline: 2px solid #689d69;
+}
+
+textarea{
+    resize: none;
+    min-height: 180px;
+}
+
+input::placeholder,textarea::placeholder{
+    color: #d79821;
+}
+
+button{
+    padding: 12px;
+    font-size: 1.6rem;
+    color: #c8bb97;
+    background-color: #5a5959;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #706f6f;
+}
+
+ 

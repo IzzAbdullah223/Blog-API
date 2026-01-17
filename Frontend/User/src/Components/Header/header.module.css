@@ -7,7 +7,7 @@
 .headerContainer{
     gap: 30px;
     color: #c8bb97;
-    outline: green solid;
+    /*outline: green solid;*/
 }
 
 .headerContainer h1{

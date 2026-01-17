@@ -23,15 +23,13 @@ body{
     gap: 60px;
     margin: 0 auto;
     min-height: 90vh;
-    outline: rgb(140, 0, 255) solid;
-    flex: 1;
-    flex-shrink: 0;
-    min-width: 0;
+    /*outline: rgb(140, 0, 255) solid;*/
+    width: 1200px;
 }
 
 .rightSide{
     flex-shrink: 1;
     width: 450px;
     min-width: 100px;
-    outline: red solid;
+    /*outline: red solid;*/
 }
