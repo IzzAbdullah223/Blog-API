@@ -3,12 +3,14 @@ export async function getPosts(sortBy) {
     switch (sortBy) {
         case "All":
             return await prisma.post.findMany({
-                where: { published: true }
+                where: { published: true },
+                include: { tag: true, comment: true }
             });
         case "Latest":
             return await prisma.post.findMany({
                 where: { published: true },
-                orderBy: { publishedAt: "desc" }
+                orderBy: { publishedAt: "desc" },
+                include: { tag: true, comment: true }
             });
         case "Admin":
             return await prisma.post.findMany();
@@ -21,16 +23,18 @@ export async function getPosts(sortBy) {
                             name: sortBy
                         }
                     }
-                }
+                },
+                include: { tag: true, comment: true }
             });
     }
 }
-export async function createPost(title, text, tags) {
+export async function createPost(title, text, readTime, tags) {
     await prisma.post.create({
         data: {
             title: title,
             text: text,
             authorId: 1,
+            readTime: readTime,
             tag: {
                 create: tags.map(tagName => ({ name: tagName }))
             }

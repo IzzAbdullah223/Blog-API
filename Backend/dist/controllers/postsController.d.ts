@@ -5,6 +5,7 @@ interface createPostBody {
     title: string;
     text: string;
     tags: string[];
+    readTime: string;
 }
 export declare function createPost(req: Request<{}, {}, createPostBody>, res: Response): Promise<void>;
 export declare function deletePost(req: Request, res: Response): Promise<void>;

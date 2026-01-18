@@ -64,6 +64,7 @@ export const PostScalarFieldEnum = {
     text: 'text',
     published: 'published',
     publishedAt: 'publishedAt',
+    readTime: 'readTime',
     authorId: 'authorId'
 };
 export const CommentScalarFieldEnum = {

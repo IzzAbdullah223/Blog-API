@@ -40,11 +40,11 @@ interface createPostBody{
      title:string
      text:string
      tags:string[]
+     readTime:string
 }
 export async function createPost(req:Request<{},{},createPostBody>,res:Response){
- 
      try{
-     await db.createPost(req.body.title,req.body.text,req.body.tags)
+     await db.createPost(req.body.title,req.body.text,req.body.readTime,req.body.tags,)
      res.status(201).json({
           message:"Post created."
      })

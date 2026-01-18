@@ -9,6 +9,7 @@ export function CreatePost(){
   const navigate = useNavigate()
 
     const [title,setTitle]=useState("")
+    const [readTime,setReadTime] = useState("")
     const [tags,setTags]= useState<string []>([])
     const [newTag,setTag] = useState("")
     const editorRef = useRef<any | null>(null);
@@ -19,6 +20,10 @@ export function CreatePost(){
 
     function handleTagInput(event:React.ChangeEvent<HTMLInputElement>){
         setTag(event.target.value)
+    }
+
+    function handleReadTime(event:React.ChangeEvent<HTMLInputElement>){
+        setReadTime(event.target.value)
     }
 
     function addTag(){
@@ -49,13 +54,14 @@ export function CreatePost(){
             body:JSON.stringify({
                 title:title,
                 text: content,
-                tags:tags
+                tags:tags,
+                readTime:readTime
             })
         })
 
         if(response.ok){
-          //navigate('/Posts')
           console.log("Ok")
+          navigate('/Posts')
         }
         else{
           console.log("Something went wrong")
@@ -105,6 +111,9 @@ export function CreatePost(){
             </li>
           ))}
           </ol>
+          <br></br> <br></br>
+          <label>Read Time: in minutes </label>
+          <input type="Text" value={readTime} onChange={handleReadTime} required/>
           <br></br> <br></br>
           <button type="submit">Submit post</button> 
         </form>

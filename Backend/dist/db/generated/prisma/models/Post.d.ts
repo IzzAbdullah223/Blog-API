@@ -26,6 +26,7 @@ export type PostMinAggregateOutputType = {
     text: string | null;
     published: boolean | null;
     publishedAt: Date | null;
+    readTime: string | null;
     authorId: number | null;
 };
 export type PostMaxAggregateOutputType = {
@@ -34,6 +35,7 @@ export type PostMaxAggregateOutputType = {
     text: string | null;
     published: boolean | null;
     publishedAt: Date | null;
+    readTime: string | null;
     authorId: number | null;
 };
 export type PostCountAggregateOutputType = {
@@ -42,6 +44,7 @@ export type PostCountAggregateOutputType = {
     text: number;
     published: number;
     publishedAt: number;
+    readTime: number;
     authorId: number;
     _all: number;
 };
@@ -59,6 +62,7 @@ export type PostMinAggregateInputType = {
     text?: true;
     published?: true;
     publishedAt?: true;
+    readTime?: true;
     authorId?: true;
 };
 export type PostMaxAggregateInputType = {
@@ -67,6 +71,7 @@ export type PostMaxAggregateInputType = {
     text?: true;
     published?: true;
     publishedAt?: true;
+    readTime?: true;
     authorId?: true;
 };
 export type PostCountAggregateInputType = {
@@ -75,6 +80,7 @@ export type PostCountAggregateInputType = {
     text?: true;
     published?: true;
     publishedAt?: true;
+    readTime?: true;
     authorId?: true;
     _all?: true;
 };
@@ -160,6 +166,7 @@ export type PostGroupByOutputType = {
     text: string;
     published: boolean;
     publishedAt: Date;
+    readTime: string;
     authorId: number;
     _count: PostCountAggregateOutputType | null;
     _avg: PostAvgAggregateOutputType | null;
@@ -179,6 +186,7 @@ export type PostWhereInput = {
     text?: Prisma.StringFilter<"Post"> | string;
     published?: Prisma.BoolFilter<"Post"> | boolean;
     publishedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+    readTime?: Prisma.StringFilter<"Post"> | string;
     authorId?: Prisma.IntFilter<"Post"> | number;
     comment?: Prisma.CommentListRelationFilter;
     tag?: Prisma.TagsListRelationFilter;
@@ -190,6 +198,7 @@ export type PostOrderByWithRelationInput = {
     text?: Prisma.SortOrder;
     published?: Prisma.SortOrder;
     publishedAt?: Prisma.SortOrder;
+    readTime?: Prisma.SortOrder;
     authorId?: Prisma.SortOrder;
     comment?: Prisma.CommentOrderByRelationAggregateInput;
     tag?: Prisma.TagsOrderByRelationAggregateInput;
@@ -204,6 +213,7 @@ export type PostWhereUniqueInput = Prisma.AtLeast<{
     text?: Prisma.StringFilter<"Post"> | string;
     published?: Prisma.BoolFilter<"Post"> | boolean;
     publishedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+    readTime?: Prisma.StringFilter<"Post"> | string;
     authorId?: Prisma.IntFilter<"Post"> | number;
     comment?: Prisma.CommentListRelationFilter;
     tag?: Prisma.TagsListRelationFilter;
@@ -215,6 +225,7 @@ export type PostOrderByWithAggregationInput = {
     text?: Prisma.SortOrder;
     published?: Prisma.SortOrder;
     publishedAt?: Prisma.SortOrder;
+    readTime?: Prisma.SortOrder;
     authorId?: Prisma.SortOrder;
     _count?: Prisma.PostCountOrderByAggregateInput;
     _avg?: Prisma.PostAvgOrderByAggregateInput;
@@ -231,6 +242,7 @@ export type PostScalarWhereWithAggregatesInput = {
     text?: Prisma.StringWithAggregatesFilter<"Post"> | string;
     published?: Prisma.BoolWithAggregatesFilter<"Post"> | boolean;
     publishedAt?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string;
+    readTime?: Prisma.StringWithAggregatesFilter<"Post"> | string;
     authorId?: Prisma.IntWithAggregatesFilter<"Post"> | number;
 };
 export type PostCreateInput = {
@@ -238,6 +250,7 @@ export type PostCreateInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     comment?: Prisma.CommentCreateNestedManyWithoutPostInput;
     tag?: Prisma.TagsCreateNestedManyWithoutPostInput;
     author: Prisma.UserCreateNestedOneWithoutPostsInput;
@@ -248,6 +261,7 @@ export type PostUncheckedCreateInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     authorId: number;
     comment?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
     tag?: Prisma.TagsUncheckedCreateNestedManyWithoutPostInput;
@@ -257,6 +271,7 @@ export type PostUpdateInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     comment?: Prisma.CommentUpdateManyWithoutPostNestedInput;
     tag?: Prisma.TagsUpdateManyWithoutPostNestedInput;
     author?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
@@ -267,6 +282,7 @@ export type PostUncheckedUpdateInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     authorId?: Prisma.IntFieldUpdateOperationsInput | number;
     comment?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
     tag?: Prisma.TagsUncheckedUpdateManyWithoutPostNestedInput;
@@ -277,6 +293,7 @@ export type PostCreateManyInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     authorId: number;
 };
 export type PostUpdateManyMutationInput = {
@@ -284,6 +301,7 @@ export type PostUpdateManyMutationInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 export type PostUncheckedUpdateManyInput = {
     id?: Prisma.IntFieldUpdateOperationsInput | number;
@@ -291,6 +309,7 @@ export type PostUncheckedUpdateManyInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     authorId?: Prisma.IntFieldUpdateOperationsInput | number;
 };
 export type PostListRelationFilter = {
@@ -307,6 +326,7 @@ export type PostCountOrderByAggregateInput = {
     text?: Prisma.SortOrder;
     published?: Prisma.SortOrder;
     publishedAt?: Prisma.SortOrder;
+    readTime?: Prisma.SortOrder;
     authorId?: Prisma.SortOrder;
 };
 export type PostAvgOrderByAggregateInput = {
@@ -319,6 +339,7 @@ export type PostMaxOrderByAggregateInput = {
     text?: Prisma.SortOrder;
     published?: Prisma.SortOrder;
     publishedAt?: Prisma.SortOrder;
+    readTime?: Prisma.SortOrder;
     authorId?: Prisma.SortOrder;
 };
 export type PostMinOrderByAggregateInput = {
@@ -327,6 +348,7 @@ export type PostMinOrderByAggregateInput = {
     text?: Prisma.SortOrder;
     published?: Prisma.SortOrder;
     publishedAt?: Prisma.SortOrder;
+    readTime?: Prisma.SortOrder;
     authorId?: Prisma.SortOrder;
 };
 export type PostSumOrderByAggregateInput = {
@@ -410,6 +432,7 @@ export type PostCreateWithoutAuthorInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     comment?: Prisma.CommentCreateNestedManyWithoutPostInput;
     tag?: Prisma.TagsCreateNestedManyWithoutPostInput;
 };
@@ -419,6 +442,7 @@ export type PostUncheckedCreateWithoutAuthorInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     comment?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
     tag?: Prisma.TagsUncheckedCreateNestedManyWithoutPostInput;
 };
@@ -452,6 +476,7 @@ export type PostScalarWhereInput = {
     text?: Prisma.StringFilter<"Post"> | string;
     published?: Prisma.BoolFilter<"Post"> | boolean;
     publishedAt?: Prisma.DateTimeFilter<"Post"> | Date | string;
+    readTime?: Prisma.StringFilter<"Post"> | string;
     authorId?: Prisma.IntFilter<"Post"> | number;
 };
 export type PostCreateWithoutCommentInput = {
@@ -459,6 +484,7 @@ export type PostCreateWithoutCommentInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     tag?: Prisma.TagsCreateNestedManyWithoutPostInput;
     author: Prisma.UserCreateNestedOneWithoutPostsInput;
 };
@@ -468,6 +494,7 @@ export type PostUncheckedCreateWithoutCommentInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     authorId: number;
     tag?: Prisma.TagsUncheckedCreateNestedManyWithoutPostInput;
 };
@@ -489,6 +516,7 @@ export type PostUpdateWithoutCommentInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     tag?: Prisma.TagsUpdateManyWithoutPostNestedInput;
     author?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
 };
@@ -498,6 +526,7 @@ export type PostUncheckedUpdateWithoutCommentInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     authorId?: Prisma.IntFieldUpdateOperationsInput | number;
     tag?: Prisma.TagsUncheckedUpdateManyWithoutPostNestedInput;
 };
@@ -506,6 +535,7 @@ export type PostCreateWithoutTagInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     comment?: Prisma.CommentCreateNestedManyWithoutPostInput;
     author: Prisma.UserCreateNestedOneWithoutPostsInput;
 };
@@ -515,6 +545,7 @@ export type PostUncheckedCreateWithoutTagInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
     authorId: number;
     comment?: Prisma.CommentUncheckedCreateNestedManyWithoutPostInput;
 };
@@ -536,6 +567,7 @@ export type PostUpdateWithoutTagInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     comment?: Prisma.CommentUpdateManyWithoutPostNestedInput;
     author?: Prisma.UserUpdateOneRequiredWithoutPostsNestedInput;
 };
@@ -545,6 +577,7 @@ export type PostUncheckedUpdateWithoutTagInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     authorId?: Prisma.IntFieldUpdateOperationsInput | number;
     comment?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
 };
@@ -554,12 +587,14 @@ export type PostCreateManyAuthorInput = {
     text: string;
     published?: boolean;
     publishedAt?: Date | string;
+    readTime: string;
 };
 export type PostUpdateWithoutAuthorInput = {
     title?: Prisma.StringFieldUpdateOperationsInput | string;
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     comment?: Prisma.CommentUpdateManyWithoutPostNestedInput;
     tag?: Prisma.TagsUpdateManyWithoutPostNestedInput;
 };
@@ -569,6 +604,7 @@ export type PostUncheckedUpdateWithoutAuthorInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
     comment?: Prisma.CommentUncheckedUpdateManyWithoutPostNestedInput;
     tag?: Prisma.TagsUncheckedUpdateManyWithoutPostNestedInput;
 };
@@ -578,6 +614,7 @@ export type PostUncheckedUpdateManyWithoutAuthorInput = {
     text?: Prisma.StringFieldUpdateOperationsInput | string;
     published?: Prisma.BoolFieldUpdateOperationsInput | boolean;
     publishedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    readTime?: Prisma.StringFieldUpdateOperationsInput | string;
 };
 /**
  * Count Type PostCountOutputType
@@ -617,6 +654,7 @@ export type PostSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
     text?: boolean;
     published?: boolean;
     publishedAt?: boolean;
+    readTime?: boolean;
     authorId?: boolean;
     comment?: boolean | Prisma.Post$commentArgs<ExtArgs>;
     tag?: boolean | Prisma.Post$tagArgs<ExtArgs>;
@@ -629,6 +667,7 @@ export type PostSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
     text?: boolean;
     published?: boolean;
     publishedAt?: boolean;
+    readTime?: boolean;
     authorId?: boolean;
     author?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["post"]>;
@@ -638,6 +677,7 @@ export type PostSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
     text?: boolean;
     published?: boolean;
     publishedAt?: boolean;
+    readTime?: boolean;
     authorId?: boolean;
     author?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
 }, ExtArgs["result"]["post"]>;
@@ -647,9 +687,10 @@ export type PostSelectScalar = {
     text?: boolean;
     published?: boolean;
     publishedAt?: boolean;
+    readTime?: boolean;
     authorId?: boolean;
 };
-export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "text" | "published" | "publishedAt" | "authorId", ExtArgs["result"]["post"]>;
+export type PostOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "text" | "published" | "publishedAt" | "readTime" | "authorId", ExtArgs["result"]["post"]>;
 export type PostInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     comment?: boolean | Prisma.Post$commentArgs<ExtArgs>;
     tag?: boolean | Prisma.Post$tagArgs<ExtArgs>;
@@ -675,6 +716,7 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
         text: string;
         published: boolean;
         publishedAt: Date;
+        readTime: string;
         authorId: number;
     }, ExtArgs["result"]["post"]>;
     composites: {};
@@ -1038,6 +1080,7 @@ export interface PostFieldRefs {
     readonly text: Prisma.FieldRef<"Post", 'String'>;
     readonly published: Prisma.FieldRef<"Post", 'Boolean'>;
     readonly publishedAt: Prisma.FieldRef<"Post", 'DateTime'>;
+    readonly readTime: Prisma.FieldRef<"Post", 'String'>;
     readonly authorId: Prisma.FieldRef<"Post", 'Int'>;
 }
 /**

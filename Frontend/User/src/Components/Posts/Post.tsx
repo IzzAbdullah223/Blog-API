@@ -10,12 +10,26 @@ import { formatDate } from '../../utils/dateFormatter';
 
 
 
-interface postData{
-    id:number,
-    title:string,
-    text:string,
-    publishedAt: string
-}
+    interface tags{
+        name:string
+    }
+
+    interface comments{
+        id:number
+        name:string
+        text:string
+        commentedAt:string
+    }
+    
+    interface postData{
+        id:number,
+        title:string,
+        text:string,
+        publishedAt: string,
+        readTime:string
+        tag: tags[]
+        comment:comments[]
+    }
 
 declare global {
   interface Window {
@@ -85,7 +99,7 @@ return (
             <p className={postCSS.content}>{stripAllHtml(post.text)}</p>
             <div className={postCSS.bottom}> 
               <div className={postCSS.comment}>
-                <div>30</div>
+                <div>{post.comment.length}</div>
                 <FaRegCommentAlt></FaRegCommentAlt>
               </div>
               <div className={postCSS.read}>

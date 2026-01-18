@@ -30,7 +30,8 @@ export function SmallArticle(){
         id:number,
         title:string,
         text:string,
-        publishedAt: string
+        publishedAt: string,
+        readTime:string
         tag: tags[]
         comment:comments[]
     }
@@ -83,7 +84,7 @@ async function getArticle(){
                 </div>
                 <div className={CSS.readTime}>
                     <FaGlasses color="grey" size={20} />
-                    2 min
+                    {data?.readTime} min
                 </div>
             </div>
             {data && (
@@ -92,7 +93,7 @@ async function getArticle(){
             <FaArrowLeft/>
             <div>go back</div>
     </NavLink>
-    <h2 className={CSS.numberOfComments}>13 Comments</h2>
+    <h2 className={CSS.numberOfComments}>{data?.comment.length} Comments</h2>
     <div className={CSS.commentPost} onClick={toggleModal}>
         <h2>Add comment</h2>
         <FaRegCommentAlt size={25} />

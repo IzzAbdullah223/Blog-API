@@ -4,9 +4,10 @@ export declare function getPosts(sortBy: string): Promise<{
     text: string;
     published: boolean;
     publishedAt: Date;
+    readTime: string;
     authorId: number;
 }[] | undefined>;
-export declare function createPost(title: string, text: string, tags: string[]): Promise<void>;
+export declare function createPost(title: string, text: string, readTime: string, tags: string[]): Promise<void>;
 export declare function getPost(id: number): Promise<({
     comment: {
         id: number;
@@ -26,6 +27,7 @@ export declare function getPost(id: number): Promise<({
     text: string;
     published: boolean;
     publishedAt: Date;
+    readTime: string;
     authorId: number;
 }) | null>;
 export declare function deletePost(id: number): Promise<void>;

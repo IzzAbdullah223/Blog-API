@@ -21,6 +21,7 @@ model Post{
   text String
   published Boolean @default(true)
   publishedAt DateTime @default(now())
+  readTime String
   comment Comment[]
   tag Tags[]
   authorId Int

@@ -51,6 +51,7 @@ export declare const PostScalarFieldEnum: {
     readonly text: "text";
     readonly published: "published";
     readonly publishedAt: "publishedAt";
+    readonly readTime: "readTime";
     readonly authorId: "authorId";
 };
 export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum];
