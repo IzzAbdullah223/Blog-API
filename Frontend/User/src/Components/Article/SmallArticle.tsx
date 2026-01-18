@@ -4,6 +4,7 @@ import CSS from './art.module.css'
 import { FaGlasses,FaArrowLeft,FaRegCommentAlt  } from "react-icons/fa";
 import './prism.costume.css'
 import { Modal } from "../Modal/Modal";
+import { formatDate,formatDate2 } from "../../utils/dateFormatter";
 
 declare global {
   interface Window {
@@ -17,6 +18,13 @@ export function SmallArticle(){
     interface tags{
         name:string
     }
+
+    interface comments{
+        id:number
+        name:string
+        text:string
+        commentedAt:string
+    }
     
     interface postData{
         id:number,
@@ -24,10 +32,12 @@ export function SmallArticle(){
         text:string,
         publishedAt: string
         tag: tags[]
+        comment:comments[]
     }
     
     const[data,setData]=useState<postData | null>(null)
     const[modal,setModal]= useState(false)
+    const[refreshTrigger, setRefreshTrigger] = useState(0)
     const{Id} = useParams()
     
     const toggleModal = () =>{
@@ -45,21 +55,17 @@ async function getArticle(){
 }
     
     useEffect(()=>{
+        
         getArticle()
-    },[Id])
+    },[Id,refreshTrigger])
     
     useEffect(() => {
         if (window.Prism && data) {
             window.Prism.highlightAll();
         }
-    }, [data]);
+    }, [data,modal]);
     
-    const formatDate = (dateString:string): string=>{
-        const date = new Date(dateString)
-        return date.toLocaleDateString('en-US',{
-            dateStyle:"full"
-        })
-    }
+ 
     
     return(
 <div className={CSS.Container}> 
@@ -72,7 +78,7 @@ async function getArticle(){
                 <h1>{data?.title}</h1>
                 <div className={CSS.tags}>
                     {data?.tag.map((tag)=>(
-                        <div key={tag.name}>Mindset</div>
+                        <div key={tag.name}>{tag.name}</div>
                     ))}
                 </div>
                 <div className={CSS.readTime}>
@@ -82,17 +88,25 @@ async function getArticle(){
             </div>
             {data && (
     <div className={CSS.articleContent} dangerouslySetInnerHTML={{ __html: data.text.trim() }} />)}
-    <NavLink  to="/About"className={({ isActive }) => isActive ? CSS.active : ''}>
+    <NavLink  to="/All"className={({ isActive }) => isActive ? CSS.active : ''}>
             <FaArrowLeft/>
             <div>go back</div>
     </NavLink>
-    <h2 className={CSS.comments}>13 Comments</h2>
-    <div className={CSS.commentContainer} onClick={toggleModal}>
+    <h2 className={CSS.numberOfComments}>13 Comments</h2>
+    <div className={CSS.commentPost} onClick={toggleModal}>
         <h2>Add comment</h2>
         <FaRegCommentAlt size={25} />
     </div>
+    <div className={CSS.commentsContainer}>
+        {data?.comment.map((comment)=>(
+            <div className={CSS.commentContainer} key={comment.id}>
+                <div className={CSS.commentHead}>from: <strong>{comment.name}</strong> on {formatDate2(comment.commentedAt)}</div>
+                <div className={CSS.comment}> {comment.text}</div>
+            </div>
+        ))}
     </div>
-    {modal && <Modal toggleModal={toggleModal} />}
+    </div>
+    {modal && <Modal toggleModal={toggleModal} onCommentAdded={() => setRefreshTrigger(prev => prev + 1)} />}
 </div> )
     
 }

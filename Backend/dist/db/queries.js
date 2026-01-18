@@ -37,7 +37,7 @@ export async function createPost(title, text) {
 export async function getPost(id) {
     return await prisma.post.findUnique({
         where: { id: id },
-        include: { tag: true }
+        include: { tag: true, comment: true }
     });
 }
 export async function deletePost(id) {
@@ -55,6 +55,11 @@ export async function unPublishPost(id) {
     await prisma.post.update({
         where: { id: id },
         data: { published: false }
+    });
+}
+export async function createComment(postId, name, comment) {
+    await prisma.comment.create({
+        data: { postId: postId, name: name, text: comment }
     });
 }
 //# sourceMappingURL=queries.js.map

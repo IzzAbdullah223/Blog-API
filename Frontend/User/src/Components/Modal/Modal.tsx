@@ -1,17 +1,19 @@
 
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import CSS from './modal.module.css'
 import { ImCross,ImCheckmark } from "react-icons/im";
 
- interface ModalProps{
+interface ModalProps{
     toggleModal: ()=> void
- }
- 
+    onCommentAdded: () => void
+}
 
-export function Modal({toggleModal}:ModalProps){
+export function Modal({toggleModal, onCommentAdded}:ModalProps){
 
     const[name,setName]=useState('')
     const[comment,setComment]=useState('')
+    const {Id} = useParams()
 
 
     const handleNameChange = (event:React.ChangeEvent<HTMLInputElement>)=>{
@@ -24,8 +26,27 @@ export function Modal({toggleModal}:ModalProps){
     
     async function submitComment(e:React.FormEvent){
         e.preventDefault()
-        console.log(name)
-        console.log(comment)
+        if(!name.trim() || !comment.trim()){
+            alert('Input or comments cannot be empty')
+            return
+        }
+         toggleModal()
+            const response = await fetch(`http://localhost:3000/Posts/${Id}`,{
+            method:"POST",
+            headers: {'content-type':'application/json'},
+            body: JSON.stringify({
+                name:name,
+                comment:comment,
+                postId:Id
+            })    
+        })
+    
+
+        if(response.ok){
+            onCommentAdded()
+            toggleModal()
+        }
+ 
   
     }
  

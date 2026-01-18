@@ -22,7 +22,9 @@ export function Post(){
             }
         })
 
-        if(reponse.status==200){
+        console.log(reponse)
+
+        if(reponse.status==201){
             navgiate('/Posts')
         }
 

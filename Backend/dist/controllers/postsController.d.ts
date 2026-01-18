@@ -8,5 +8,12 @@ export declare function getPost(req: Request, res: Response): Promise<Response<a
 export declare function createPost(req: Request<{}, {}, createPostBody>, res: Response): Promise<void>;
 export declare function deletePost(req: Request, res: Response): Promise<void>;
 export declare function updatePublish(req: Request, res: Response): Promise<void>;
+interface ArticleBody {
+    name: string;
+    comment: string;
+}
+export declare function commentPost(req: Request<{
+    PostId: string;
+}, {}, ArticleBody>, res: Response): Promise<void>;
 export {};
 //# sourceMappingURL=postsController.d.ts.map

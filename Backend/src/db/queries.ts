@@ -47,7 +47,7 @@ export async function createPost(title:string,text:string){
 export async function getPost(id:number){
     return await prisma.post.findUnique({
         where:{id:id},
-        include:{tag:true}
+        include:{tag:true,comment:true}
     })
 }
 
@@ -69,6 +69,12 @@ export async function unPublishPost(id:number){
     await prisma.post.update({
         where:{id:id},
         data:{published:false}
+    })
+}
+
+export async function createComment(postId:number,name:string,comment:string){
+    await prisma.comment.create({
+        data:{postId:postId,name:name,text:comment}
     })
 }
 

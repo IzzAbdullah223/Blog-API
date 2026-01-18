@@ -22,6 +22,9 @@ export function Login(){
     async function submitForm(event:React.FormEvent){
 
         event.preventDefault()  
+        if(name.trim()){
+            console.log("test")
+        }
         console.log(name)
         console.log(password)
     

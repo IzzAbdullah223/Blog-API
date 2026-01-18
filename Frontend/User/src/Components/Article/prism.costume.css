@@ -1,3 +1,23 @@
-.articleContent h1{
-    font-size: 6rem;
+ pre[class*="language-"] code {
+    font-size: 1.25em;
+}
+
+.token.tag {
+    color: #74dfc4 !important;  /* Color for ul, li, etc */
+}
+
+.token.punctuation {
+    color: #7b6995 !important;  /* Color for < > / */
+}
+
+.token.attr-name {
+    color: #eb64b9 !important;
+}
+
+.token.attr-value {
+    color: #b4dce7 !important;
+}
+
+.token.property {
+    color: #40b4c4 !important;
 }

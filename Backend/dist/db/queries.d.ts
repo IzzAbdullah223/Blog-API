@@ -8,6 +8,13 @@ export declare function getPosts(sortBy: string): Promise<{
 }[] | undefined>;
 export declare function createPost(title: string, text: string): Promise<void>;
 export declare function getPost(id: number): Promise<({
+    comment: {
+        id: number;
+        name: string;
+        text: string;
+        commentedAt: Date;
+        postId: number;
+    }[];
     tag: {
         id: number;
         name: string;
@@ -24,4 +31,5 @@ export declare function getPost(id: number): Promise<({
 export declare function deletePost(id: number): Promise<void>;
 export declare function publishPost(id: number): Promise<void>;
 export declare function unPublishPost(id: number): Promise<void>;
+export declare function createComment(postId: number, name: string, comment: string): Promise<void>;
 //# sourceMappingURL=queries.d.ts.map

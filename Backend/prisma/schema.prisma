@@ -33,12 +33,12 @@ name String
 text String
 commentedAt DateTime @default(now())
 postId Int
-post Post @relation(fields:[postId],references: [id])
+post Post @relation(fields:[postId],references: [id], onDelete: Cascade)
 }
 
 model Tags{
   id Int @id @default(autoincrement())
   name String
   postId Int
-  post Post @relation(fields:[postId],references: [id])
+  post Post @relation(fields:[postId],references: [id], onDelete: Cascade)
 }

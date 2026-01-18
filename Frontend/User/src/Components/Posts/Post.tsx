@@ -6,6 +6,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { MagnifyIcon } from '../Icons/Magnify';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { formatDate } from '../../utils/dateFormatter';
 
 
 
@@ -32,8 +33,6 @@ export function Post(){
     async function getPosts(){
         setData(null)
 
-        
-  
         const response = await fetch(`http://localhost:3000/Posts?sortBy=${sortBy}`, {
             method:"GET",
             headers:{
@@ -50,19 +49,10 @@ export function Post(){
        
     }
 
-
-
     const stripAllHtml = (html:string):string=>{
         const temp = document.createElement('div');
         temp.innerHTML = html;
         return temp.textContent || temp.innerText || ''
-    }
-
-    const formatDate = (dateString:string): string=>{
-        const date = new Date(dateString)
-        return date.toLocaleDateString('en-US',{
-            dateStyle:"full"
-        })
     }
 
     useEffect(()=>{

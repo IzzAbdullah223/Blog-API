@@ -50,7 +50,7 @@ export function CreatePost(){
         <form onSubmit={handleSubmit}>
             <label>Title: </label>
             <input type="text" value={title}  onChange={handleTitleChange} required></input>
-            <label>Text: </label>
+            <br></br><br></br>
         <Editor
             apiKey='cqe7anygnlsrzao5tq6yr7bbkewgdyeshpu7j0clpyujjrb7'
             onInit={(evt, editor) => editorRef.current = editor}
@@ -70,6 +70,7 @@ export function CreatePost(){
                 content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }'
             }}
           />
+          <br></br><br></br>
           <button type="submit">Submit post</button> 
         </form>
        

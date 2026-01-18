@@ -53,14 +53,14 @@ export async function createPost(req:Request<{},{},createPostBody>,res:Response)
 }
 
 export async function deletePost(req:Request,res:Response){
-     const PostId = Number(req.params.PostId)
-     
+     const PostId = Number(req.params.PostId)   
      try{
           await db.deletePost(PostId)
-          res.status(200).json({
+          res.status(201).json({
                message:"Post deleted sucessfuly"
           })
      }catch(err){
+          console.log(err)
           res.status(500).json({
                message:"Failed to delete post "
           })
@@ -94,6 +94,26 @@ export async function updatePublish(req:Request,res:Response){
                })
           }
 
+}
+
+interface ArticleBody{
+     name:string
+     comment:string
+}
+
+export async function commentPost(req:Request<{PostId:string},{},ArticleBody>,res:Response){
+     const postId = Number(req.params.PostId)
+     const {name,comment} = req.body
+     try{
+          await db.createComment(postId,name,comment)
+          res.status(201).json({
+               comment: "Comment added"
+          })
+     }catch(err){
+          res.status(500).json({
+               message: "Failed to post comment "
+          })
+     }
 }
 
 
