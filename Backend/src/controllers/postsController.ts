@@ -4,10 +4,7 @@ import * as db from '../db/queries.js'
 
 
 
-interface createPostBody{
-     title:string
-     text:string
-}
+ 
  
 
 export async function getPosts(req:Request,res:Response){
@@ -39,17 +36,24 @@ export async function getPost(req:Request,res:Response){ // for viewing a single
 }
  
 
+interface createPostBody{
+     title:string
+     text:string
+     tags:string[]
+}
 export async function createPost(req:Request<{},{},createPostBody>,res:Response){
-     
+ 
      try{
-     await db.createPost(req.body.title,req.body.text)
+     await db.createPost(req.body.title,req.body.text,req.body.tags)
      res.status(201).json({
           message:"Post created."
      })
      }
      catch(err){
           res.status(500).json({message:"Failed to create ost."})
-     }
+     } 
+
+   
 }
 
 export async function deletePost(req:Request,res:Response){

@@ -9,10 +9,32 @@ export function CreatePost(){
   const navigate = useNavigate()
 
     const [title,setTitle]=useState("")
+    const [tags,setTags]= useState<string []>([])
+    const [newTag,setTag] = useState("")
     const editorRef = useRef<any | null>(null);
 
     function handleTitleChange(event:React.ChangeEvent<HTMLInputElement>){
         setTitle(event.target.value)
+    }
+
+    function handleTagInput(event:React.ChangeEvent<HTMLInputElement>){
+        setTag(event.target.value)
+    }
+
+    function addTag(){
+
+        if(newTag.trim()!==""){
+            setTags(t=>[...t,newTag])
+            setTag("")
+        }
+
+        console.log(tags)
+ 
+    }
+
+    function deleteTag(index:number){
+        const updatedTags = tags.filter((_,i)=>i !== index)
+        setTags(updatedTags)
     }
  
 
@@ -26,12 +48,14 @@ export function CreatePost(){
             },
             body:JSON.stringify({
                 title:title,
-                text: content
+                text: content,
+                tags:tags
             })
         })
 
         if(response.ok){
-          navigate('/Posts')
+          //navigate('/Posts')
+          console.log("Ok")
         }
         else{
           console.log("Something went wrong")
@@ -71,6 +95,17 @@ export function CreatePost(){
             }}
           />
           <br></br><br></br>
+          <input type="text" placeholder="Enter a tag" value={newTag} onChange={handleTagInput}></input>
+          <button onClick={addTag} type="button">Add tag</button>
+          <ol> 
+          {tags.map((tag,index)=>(
+            <li key={index}>
+                <span>{tag}</span>
+                <button onClick={()=>deleteTag(index)}>Delete</button>
+            </li>
+          ))}
+          </ol>
+          <br></br> <br></br>
           <button type="submit">Submit post</button> 
         </form>
        

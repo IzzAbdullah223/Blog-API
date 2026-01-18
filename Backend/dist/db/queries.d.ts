@@ -6,7 +6,7 @@ export declare function getPosts(sortBy: string): Promise<{
     publishedAt: Date;
     authorId: number;
 }[] | undefined>;
-export declare function createPost(title: string, text: string): Promise<void>;
+export declare function createPost(title: string, text: string, tags: string[]): Promise<void>;
 export declare function getPost(id: number): Promise<({
     comment: {
         id: number;

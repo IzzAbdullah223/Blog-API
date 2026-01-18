@@ -25,15 +25,19 @@ export async function getPost(req, res) {
     }
 }
 export async function createPost(req, res) {
-    try {
-        await db.createPost(req.body.title, req.body.text);
-        res.status(201).json({
-            message: "Post created."
-        });
-    }
-    catch (err) {
-        res.status(500).json({ message: "Failed to create ost." });
-    }
+    /*
+         try{
+         await db.createPost(req.body.title,req.body.text)
+         res.status(201).json({
+              message:"Post created."
+         })
+         }
+         catch(err){
+              res.status(500).json({message:"Failed to create ost."})
+         }*/
+    console.log(req.body.title);
+    console.log(req.body.text);
+    console.log(req.body.tags);
 }
 export async function deletePost(req, res) {
     const PostId = Number(req.params.PostId);

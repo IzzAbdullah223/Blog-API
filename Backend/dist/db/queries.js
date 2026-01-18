@@ -25,12 +25,15 @@ export async function getPosts(sortBy) {
             });
     }
 }
-export async function createPost(title, text) {
+export async function createPost(title, text, tags) {
     await prisma.post.create({
         data: {
             title: title,
             text: text,
-            authorId: 1
+            authorId: 1,
+            tag: {
+                create: tags.map(tagName => ({ name: tagName }))
+            }
         }
     });
 }
