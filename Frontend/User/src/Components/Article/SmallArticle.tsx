@@ -45,7 +45,12 @@ export function SmallArticle(){
                 'Content-Type': 'application/json'
             }
         })
-        setData(await response.json())
+
+        const data = await response.json()
+        setTimeout(()=>{
+            setData(data)
+        },3000)
+         
     }
     
     useEffect(()=>{

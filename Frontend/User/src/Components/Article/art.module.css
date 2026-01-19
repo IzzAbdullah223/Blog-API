@@ -7,9 +7,9 @@
 .Container{
     display: flex;
     justify-content: center;
-    
     /*outline: blue solid;*/
     /*padding: 20px;*/
+    color: #d79721;
 }
 
 .ArticleContainer{
@@ -55,6 +55,7 @@ gap: 10px;
     padding: 3px 1rem;
   border-radius: 2px;
   font-size: 1rem;
+    color: #c8bb97;;
 }
 
 .readTime{
@@ -81,6 +82,11 @@ gap: 10px;
     color: #d79721;
 }
 
+.articleContent ol li{
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
 .articleContent ul{
     padding-left: 2.8rem;
 }
@@ -93,6 +99,16 @@ gap: 10px;
 .articleContent ul li::marker{
     font-size: 1.2rem;
     color: #d79721;
+}
+
+.articleContent h3{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #d79721;
+}
+
+code.westren{
+    background-color: red;
 }
 
 .ArticleContainer a{
@@ -147,5 +163,7 @@ gap: 10px;
 .commentHead{
 margin-bottom: 8px;
 }
+
+
 
  
