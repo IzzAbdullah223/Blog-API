@@ -3,7 +3,6 @@ import postCSS from './post.module.css'
 import { useEffect, useState } from 'react';
 import { FaRegCommentAlt } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
-import { MagnifyIcon } from '../Icons/Magnify';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../utils/dateFormatter';
