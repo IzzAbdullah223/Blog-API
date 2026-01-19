@@ -22,6 +22,7 @@ body.active-modal {
 .overlay {
     background: rgba(3, 3, 3, 0.774);
 }
+
 .modalContent {
     position: absolute;
     top: 40%;
@@ -35,7 +36,7 @@ body.active-modal {
     min-width: 700px;
 }
 
-.modalContent h1{
+.modalContent h1 {
     color: #d79821;
     margin-bottom: 20px;
 }
@@ -49,23 +50,24 @@ body.active-modal {
     border: none;
     padding: 15px 20px;
     border-radius: 4px;
-    transition: background-color .2s ease
+    transition: background-color .2s ease;
 }
 
-.closeModal:hover{
-     background-color: #cc221cc2;
-     cursor: pointer;
-     outline: 1px solid rgba(128, 128, 128, 0.658);
+.closeModal:hover {
+    background-color: #cc221cc2;
+    cursor: pointer;
+    outline: 1px solid rgba(128, 128, 128, 0.658);
 }
 
-form{
+.modalContent form {
     display: flex;
     gap: 40px;
     flex-direction: column;
     padding: 15px;
 }
 
-input,textarea{
+.modalInput,
+.modaltext {
     background-color: transparent;
     border: none;
     outline: 1px solid #d79821;
@@ -75,20 +77,22 @@ input,textarea{
     border-radius: 3px;
 }
 
-input:focus,textarea:focus{
+.modalInput:focus,
+.modaltext:focus {
     outline: 2px solid #689d69;
 }
 
-textarea{
+.modaltext {
     resize: none;
     min-height: 180px;
 }
 
-input::placeholder,textarea::placeholder{
+.modalInput::placeholder,
+.modaltext::placeholder {
     color: #d79821;
 }
 
-button{
+.modalContent button[type="submit"] {
     padding: 12px;
     font-size: 1.6rem;
     color: #c8bb97;
@@ -98,8 +102,6 @@ button{
     border-radius: 5px;
 }
 
-button:hover{
+.modalContent button[type="submit"]:hover {
     background-color: #706f6f;
 }
-
- 

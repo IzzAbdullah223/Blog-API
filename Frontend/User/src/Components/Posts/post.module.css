@@ -12,6 +12,7 @@
     min-width: 0;
     width: 1200px;
    /* outline: blue solid;*/
+   outline: red solid;
 }
 .Posts{
     display: flex;
@@ -29,27 +30,13 @@
     background-color: #383838;
     text-decoration: none;
     color: inherit;
-    width: 300px;
+    width: 320px;
+    height: 400px;
     flex-shrink: 0;
     padding: 20px;
+    outline: blue solid;
 }
 
-/* loading container start here*/
-.LoadingContainer{
-    display: flex;
-    justify-content: center;
-    background-color: #383838;
-    padding: 20px;
-    border-radius: 5px;
-    width: 930px;
-    height: 60vh;
-}
-.MagnifyContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
- 
 .postContainer::before {
     content: '';
     z-index: 1;

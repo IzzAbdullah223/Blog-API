@@ -7,6 +7,7 @@ import { MagnifyIcon } from '../Icons/Magnify';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../../utils/dateFormatter';
+import { Loading } from '../Loading/Loading';
 
 
 
@@ -84,11 +85,7 @@ return (
   <div className={postCSS.PostLoadWrapper}>
     {!data ? (
       // First return - when no data
-      <div className={postCSS.LoadingContainer}>
-        <div className={postCSS.MagnifyContainer}> 
-          <MagnifyIcon size={90}></MagnifyIcon>
-        </div>  
-      </div>
+      <Loading/>
     ) : (
       // Second return - when data exists
       <div className={postCSS.Posts}>

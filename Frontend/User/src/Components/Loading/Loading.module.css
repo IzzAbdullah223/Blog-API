@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.LoadingContainer{
+    display: flex;
+    justify-content: center;
+    background-color: #383838;
+    padding: 20px;
+    border-radius: 5px;
+    width: 930px;
+    height: 60vh;
+    outline: blue solid;
+}
+.MagnifyContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

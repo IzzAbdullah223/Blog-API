@@ -52,7 +52,7 @@ async function getArticle(){
         }
     })
 
-    setData(await response.json())
+     
 }
     
     useEffect(()=>{
@@ -67,8 +67,13 @@ async function getArticle(){
     }, [data,modal]);
     
  
-    
-    return(
+    if(!data){
+        return(<div>Loading</div>)
+
+    }
+     
+
+return( 
 <div className={CSS.Container}> 
     <div className={CSS.ArticleContainer}>
             <div className={CSS.Top}>

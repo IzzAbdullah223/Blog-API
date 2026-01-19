@@ -59,8 +59,8 @@ export function Modal({toggleModal, onCommentAdded}:ModalProps){
                 <h1>Add Comment</h1>
                  
                     <form onSubmit={submitComment}>
-                        <input type='text' required placeholder='Name (required)' value={name} onChange={handleNameChange}/> 
-                        <textarea required placeholder='Comment (required)' value={comment} onChange={handleCommentChange}/>
+                        <input className={CSS.modalInput} type='text' required placeholder='Name (required)' value={name} onChange={handleNameChange}/> 
+                        <textarea className={CSS.modaltext} required placeholder='Comment (required)' value={comment} onChange={handleCommentChange}/>
                             <button type='submit'> Submit <ImCheckmark/></button>
                     </form>
                     <button className={CSS.closeModal} onClick={toggleModal}>

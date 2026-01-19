@@ -1,14 +1,31 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-import Article from './Article.tsx'
+import { createBrowserRouter,RouterProvider,Navigate } from 'react-router-dom'
+import { Layout } from './Components/Layout/Layout'
+import { Post } from './Components/Posts/Post'
+import { SmallArticle } from './Components/Article/SmallArticle'
+ 
+ 
 
 const router = createBrowserRouter([
-  {path:"/",element:<Navigate to={'/All'}></Navigate>},
-  {path:"/:sortBy",element:<App></App>},
-  {path:"/Article/:Id",element:<Article></Article>}
+  {
+    path:"/",
+    element:<Layout/>,
+    children:[
+      {
+        index:true,
+        element:<Navigate to='/All' replace/>
+      },
+      {
+        path:":sortBy",
+        element:<Post/>
+      },
+      {
+        path:"Article/:Id",
+        element:<SmallArticle/>
+      }
+    ]
+  }
 ])
 
 
