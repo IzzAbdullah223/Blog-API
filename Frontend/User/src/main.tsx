@@ -21,6 +21,10 @@ const router = createBrowserRouter([
         element:<Post/>
       },
       {
+      path: "Search/:sortBy",
+      element: <Post />
+      },
+      {
         path:"Article/:Id",
         element:<SmallArticle/>
       }

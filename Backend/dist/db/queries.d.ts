@@ -6,7 +6,7 @@ export declare function getPosts(sortBy: string): Promise<{
     publishedAt: Date;
     readTime: string;
     authorId: number;
-}[] | undefined>;
+}[]>;
 export declare function createPost(title: string, text: string, readTime: string, tags: string[]): Promise<void>;
 export declare function getPost(id: number): Promise<({
     comment: {
@@ -19,7 +19,6 @@ export declare function getPost(id: number): Promise<({
     tag: {
         id: number;
         name: string;
-        postId: number;
     }[];
 } & {
     id: number;

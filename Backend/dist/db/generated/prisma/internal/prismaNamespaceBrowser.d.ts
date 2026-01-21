@@ -29,7 +29,7 @@ export declare const ModelName: {
     readonly User: "User";
     readonly Post: "Post";
     readonly Comment: "Comment";
-    readonly Tags: "Tags";
+    readonly Tag: "Tag";
 };
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 export declare const TransactionIsolationLevel: {
@@ -63,12 +63,11 @@ export declare const CommentScalarFieldEnum: {
     readonly postId: "postId";
 };
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum];
-export declare const TagsScalarFieldEnum: {
+export declare const TagScalarFieldEnum: {
     readonly id: "id";
     readonly name: "name";
-    readonly postId: "postId";
 };
-export type TagsScalarFieldEnum = (typeof TagsScalarFieldEnum)[keyof typeof TagsScalarFieldEnum];
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum];
 export declare const SortOrder: {
     readonly asc: "asc";
     readonly desc: "desc";

@@ -4,8 +4,8 @@ import { RiResetLeftLine } from "react-icons/ri";
 import { FaRandom } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import { useEffect, useState, type ReactElement } from "react";
+import { NavLink,useNavigate} from "react-router-dom";
+import { useEffect, useState} from "react";
 
 
 interface tagsData{
@@ -13,6 +13,8 @@ interface tagsData{
     name:string
 }
 export function Sidebar(){
+
+    const navigate = useNavigate()
 
     const [search,setSearch] = useState("")
     const[data,setData]= useState<tagsData [] |null>(null)
@@ -39,8 +41,8 @@ export function Sidebar(){
 
     }
 
-    function postsSearch(){
-    
+    async function postsSearch(){
+        navigate(`/Search/${search.trim()}`)
     }
  
 

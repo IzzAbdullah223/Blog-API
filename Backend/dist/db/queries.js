@@ -14,18 +14,32 @@ export async function getPosts(sortBy) {
             });
         case "Admin":
             return await prisma.post.findMany();
-        case sortBy:
-            return await prisma.post.findMany({
+        default: {
+            return prisma.post.findMany({
                 where: {
                     published: true,
-                    tag: {
-                        some: {
-                            name: sortBy
+                    OR: [
+                        {
+                            title: {
+                                contains: sortBy,
+                                mode: "insensitive"
+                            }
+                        },
+                        {
+                            tag: {
+                                some: {
+                                    name: {
+                                        contains: sortBy,
+                                        mode: "insensitive"
+                                    }
+                                }
+                            }
                         }
-                    }
+                    ]
                 },
                 include: { tag: true, comment: true }
             });
+        }
     }
 }
 export async function createPost(title, text, readTime, tags) {
@@ -36,7 +50,10 @@ export async function createPost(title, text, readTime, tags) {
             authorId: 1,
             readTime: readTime,
             tag: {
-                create: tags.map(tagName => ({ name: tagName }))
+                connectOrCreate: tags.map(tagName => ({
+                    where: { name: tagName },
+                    create: { name: tagName }
+                }))
             }
         }
     });
@@ -70,12 +87,11 @@ export async function createComment(postId, name, comment) {
     });
 }
 export async function getTags() {
-    return await prisma.tags.findMany({
+    return await prisma.tag.findMany({
         select: {
-            id: true,
-            name: true
-        },
-        distinct: ['name']
+            name: true,
+            id: true
+        }
     });
 }
 //# sourceMappingURL=queries.js.map

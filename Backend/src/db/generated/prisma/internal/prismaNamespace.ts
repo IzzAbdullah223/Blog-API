@@ -387,7 +387,7 @@ export const ModelName = {
   User: 'User',
   Post: 'Post',
   Comment: 'Comment',
-  Tags: 'Tags'
+  Tag: 'Tag'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +403,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "post" | "comment" | "tags"
+    modelProps: "user" | "post" | "comment" | "tag"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -629,77 +629,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Tags: {
-      payload: Prisma.$TagsPayload<ExtArgs>
-      fields: Prisma.TagsFieldRefs
+    Tag: {
+      payload: Prisma.$TagPayload<ExtArgs>
+      fields: Prisma.TagFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TagsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload> | null
+          args: Prisma.TagFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TagsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         findFirst: {
-          args: Prisma.TagsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload> | null
+          args: Prisma.TagFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TagsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         findMany: {
-          args: Prisma.TagsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[]
+          args: Prisma.TagFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
         }
         create: {
-          args: Prisma.TagsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         createMany: {
-          args: Prisma.TagsCreateManyArgs<ExtArgs>
+          args: Prisma.TagCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TagsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[]
+          args: Prisma.TagCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
         }
         delete: {
-          args: Prisma.TagsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         update: {
-          args: Prisma.TagsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         deleteMany: {
-          args: Prisma.TagsDeleteManyArgs<ExtArgs>
+          args: Prisma.TagDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TagsUpdateManyArgs<ExtArgs>
+          args: Prisma.TagUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TagsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>[]
+          args: Prisma.TagUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>[]
         }
         upsert: {
-          args: Prisma.TagsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagsPayload>
+          args: Prisma.TagUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TagPayload>
         }
         aggregate: {
-          args: Prisma.TagsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTags>
+          args: Prisma.TagAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTag>
         }
         groupBy: {
-          args: Prisma.TagsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TagsGroupByOutputType>[]
+          args: Prisma.TagGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TagsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TagsCountAggregateOutputType> | number
+          args: Prisma.TagCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TagCountAggregateOutputType> | number
         }
       }
     }
@@ -775,13 +775,12 @@ export const CommentScalarFieldEnum = {
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
 
 
-export const TagsScalarFieldEnum = {
+export const TagScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  postId: 'postId'
+  name: 'name'
 } as const
 
-export type TagsScalarFieldEnum = (typeof TagsScalarFieldEnum)[keyof typeof TagsScalarFieldEnum]
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -966,7 +965,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   post?: Prisma.PostOmit
   comment?: Prisma.CommentOmit
-  tags?: Prisma.TagsOmit
+  tag?: Prisma.TagOmit
 }
 
 /* Types for Logging */

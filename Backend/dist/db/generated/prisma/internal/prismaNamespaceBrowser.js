@@ -42,7 +42,7 @@ export const ModelName = {
     User: 'User',
     Post: 'Post',
     Comment: 'Comment',
-    Tags: 'Tags'
+    Tag: 'Tag'
 };
 /*
  * Enums
@@ -74,10 +74,9 @@ export const CommentScalarFieldEnum = {
     commentedAt: 'commentedAt',
     postId: 'postId'
 };
-export const TagsScalarFieldEnum = {
+export const TagScalarFieldEnum = {
     id: 'id',
-    name: 'name',
-    postId: 'postId'
+    name: 'name'
 };
 export const SortOrder = {
     asc: 'asc',

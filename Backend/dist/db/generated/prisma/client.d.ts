@@ -35,8 +35,8 @@ export type Post = Prisma.PostModel;
  */
 export type Comment = Prisma.CommentModel;
 /**
- * Model Tags
+ * Model Tag
  *
  */
-export type Tags = Prisma.TagsModel;
+export type Tag = Prisma.TagModel;
 //# sourceMappingURL=client.d.ts.map

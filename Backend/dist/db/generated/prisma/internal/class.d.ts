@@ -145,14 +145,14 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
-     * `prisma.tags`: Exposes CRUD operations for the **Tags** model.
+     * `prisma.tag`: Exposes CRUD operations for the **Tag** model.
       * Example usage:
       * ```ts
       * // Fetch zero or more Tags
-      * const tags = await prisma.tags.findMany()
+      * const tags = await prisma.tag.findMany()
       * ```
       */
-    get tags(): Prisma.TagsDelegate<ExtArgs, {
+    get tag(): Prisma.TagDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }
