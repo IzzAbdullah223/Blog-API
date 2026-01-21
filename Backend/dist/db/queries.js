@@ -14,7 +14,7 @@ export async function getPosts(sortBy) {
             });
         case "Admin":
             return await prisma.post.findMany();
-        case "Visual Studio Code":
+        case sortBy:
             return await prisma.post.findMany({
                 where: {
                     published: true,
@@ -67,6 +67,15 @@ export async function unPublishPost(id) {
 export async function createComment(postId, name, comment) {
     await prisma.comment.create({
         data: { postId: postId, name: name, text: comment }
+    });
+}
+export async function getTags() {
+    return await prisma.tags.findMany({
+        select: {
+            id: true,
+            name: true
+        },
+        distinct: ['name']
     });
 }
 //# sourceMappingURL=queries.js.map

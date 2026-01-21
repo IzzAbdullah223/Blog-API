@@ -5,11 +5,49 @@ import { FaRandom } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState, type ReactElement } from "react";
+
+
+interface tagsData{
+    id:number
+    name:string
+}
 export function Sidebar(){
 
-            const tags=["JavaScript","HTML","CSS","TypeScript","React","AI","MongoDB","Mindset","Node.js","Vite","Express","Git",
-                "Visual Studio Code","Tools"
-    ]
+    const [search,setSearch] = useState("")
+    const[data,setData]= useState<tagsData [] |null>(null)
+
+   
+    async function getTags(){
+        const response = await fetch('http://localhost:3000/Posts/Tags',{
+            method:"GET",
+            headers:{'content-type':'application/json'}
+        })
+        const json = await response.json() as tagsData[]
+        setData(json)
+    }
+
+
+    function handleSearchInput(e:React.ChangeEvent<HTMLInputElement>){
+        setSearch(e.target.value)
+    }
+
+
+    function handleKeyDown(e:React.KeyboardEvent){
+       if(e.key=="Enter")
+        postsSearch()
+
+    }
+
+    function postsSearch(){
+    
+    }
+ 
+
+
+    useEffect(()=>{
+        getTags()
+    },[])
 
   
 
@@ -20,15 +58,15 @@ export function Sidebar(){
              
                 <h1>Search</h1>
                 <div className={sideCSS.searchBarContainer}>
-                    <input type='text' className={sideCSS.searchInput}></input>
+                    <input type='text' className={sideCSS.searchInput} value={search} onKeyDown={handleKeyDown} onChange={handleSearchInput}></input>
                     <MdOutlineNavigateBefore size={30}></MdOutlineNavigateBefore>
                 </div>
                 <h1>All tags</h1>
 
             
                 <div className={sideCSS.tagsContainer}>
-                    {tags.map((tag)=>(
-                        <NavLink key={tag} className={({isActive})=>isActive? sideCSS.active: ''} to={`/${tag}`}>{tag}</NavLink>
+                    {data?.map((tag)=>(
+                        <NavLink key={tag.id} className={({isActive})=>isActive? sideCSS.active: ''} to={`/${tag.name}`}>{tag.name}</NavLink>
                     ))}
                 </div>
 

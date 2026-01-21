@@ -88,4 +88,15 @@ export async function commentPost(req, res) {
         });
     }
 }
+export async function getTags(req, res) {
+    try {
+        const tags = await db.getTags();
+        return res.status(200).json(tags);
+    }
+    catch (err) {
+        res.status(500).json({
+            message: "Failed to fetch tags"
+        });
+    }
+}
 //# sourceMappingURL=postsController.js.map

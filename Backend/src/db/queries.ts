@@ -21,7 +21,7 @@ export async function getPosts(sortBy:string){
 
             return await prisma.post.findMany()
 
-        case "Visual Studio Code":
+        case sortBy:
 
             return await prisma.post.findMany({
                 where:{
@@ -84,6 +84,16 @@ export async function createComment(postId:number,name:string,comment:string){
     await prisma.comment.create({
         data:{postId:postId,name:name,text:comment}
     })
+}
+
+export async function getTags(){
+   return await prisma.tags.findMany({
+     select:{
+        id:true,
+        name:true
+     },
+     distinct:['name']
+   })
 }
 
  

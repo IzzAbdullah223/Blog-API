@@ -23,7 +23,7 @@ model Post{
   publishedAt DateTime @default(now())
   readTime String
   comment Comment[]
-  tag Tags[]
+  tags Tags[]
   authorId Int
   author User @relation(fields:[authorId],references: [id])
 }

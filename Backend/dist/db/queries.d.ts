@@ -34,4 +34,8 @@ export declare function deletePost(id: number): Promise<void>;
 export declare function publishPost(id: number): Promise<void>;
 export declare function unPublishPost(id: number): Promise<void>;
 export declare function createComment(postId: number, name: string, comment: string): Promise<void>;
+export declare function getTags(): Promise<{
+    id: number;
+    name: string;
+}[]>;
 //# sourceMappingURL=queries.d.ts.map

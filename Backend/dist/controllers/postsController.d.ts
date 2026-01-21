@@ -17,5 +17,6 @@ interface ArticleBody {
 export declare function commentPost(req: Request<{
     PostId: string;
 }, {}, ArticleBody>, res: Response): Promise<void>;
+export declare function getTags(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined>;
 export {};
 //# sourceMappingURL=postsController.d.ts.map

@@ -121,5 +121,18 @@ export async function commentPost(req:Request<{PostId:string},{},ArticleBody>,re
 }
 
 
+export async function getTags(req:Request,res:Response){
+     try{
+          const tags =await db.getTags()
+          return res.status(200).json(tags)
+     }
+     catch(err){
+          res.status(500).json({
+               message:"Failed to fetch tags"
+          })
+     }
+}
+
+
 
  
