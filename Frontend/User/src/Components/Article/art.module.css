@@ -66,12 +66,29 @@ gap: 10px;
      justify-content: flex-end;
      font-size: 1.3rem;
 }
+.goBack{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.3rem;
+    gap: 10px;
+    color: #d79721;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.goBack:hover{
+   color: #689d69; 
+}
+
+
+
+
 
 .articleContent P{
     color: #d79721;
     font-size: 1.25em;
     font-weight: normal;
-
 }
 
 .articleContent ol{
@@ -108,25 +125,8 @@ gap: 10px;
    
 }
 
-code.westren{
-    background-color: red;
-}
-
-.ArticleContainer a{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1.3rem;
-    gap: 10px;
-    color: #d79721;
-    cursor: pointer;
-    width: fit-content;
-}
 
 
-.ArticleContainer a:hover{
-   color: #689d69; 
-}
 
 .numberOfComments{
     margin-top: 20px;
@@ -163,6 +163,30 @@ code.westren{
  
 .commentHead{
 margin-bottom: 8px;
+}
+
+.article-content pre[class*="language-"] {
+    background: #2d2d2d;
+    color: #ccc;
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+}
+
+.article-content code[class*="language-"] {
+    background: transparent;
+    color: inherit;
+}
+
+/* If TinyMCE uses different classes */
+.article-content pre.language-javascript,
+.article-content pre.language-html {
+    background: #2d2d2d;
+    color: #ccc;
+    padding: 1em;
+    border-radius: 5px;
+    color: red;
 }
 
 

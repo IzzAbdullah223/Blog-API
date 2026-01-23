@@ -46,10 +46,12 @@ export function CreatePost(){
     async function handleSubmit(event:React.FormEvent){
         event.preventDefault()
         const content = editorRef.current.getContent()
+        const token = localStorage.getItem('token')
         const response = await fetch('http://localhost:3000/Posts',{
             method:"POST",
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body:JSON.stringify({
                 title:title,
@@ -60,16 +62,18 @@ export function CreatePost(){
         })
 
         if(response.ok){
-          console.log("Ok")
           navigate('/Posts')
+        }
+
+        else if(response.status=== 403){
+            localStorage.removeItem('token');
+            navigate('/')
         }
         else{
           console.log("Something went wrong")
         }
         
 
-
-       
 
     }
 

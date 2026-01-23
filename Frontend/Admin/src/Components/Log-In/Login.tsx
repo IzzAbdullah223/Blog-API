@@ -1,15 +1,20 @@
 import logCSS from './login.module.css'
-import { useState,useRef } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LoadIcon } from '../Icons/LoadIcon';
 
+ 
 
 export function Login(){
 
     const [loading,setLoading]= useState(false)
+    const [error,setError] = useState("")
 
     const [name,setName] = useState("")
 
     const [password,setPassword] = useState("")
+
+    const Navigate = useNavigate()
 
     function handleNameChange(event:React.ChangeEvent<HTMLInputElement>){
        setName(event.target.value)
@@ -23,11 +28,7 @@ export function Login(){
 
         event.preventDefault()  
         if(name.trim()){
-            console.log("test")
         }
-        console.log(name)
-        console.log(password)
-    
         setLoading(true)
         const response = await fetch('http://localhost:3000/Login',{
             method:'POST',
@@ -39,18 +40,20 @@ export function Login(){
                 password: password
             })
         })
-         
+
 
         setTimeout(()=>{
-
               setLoading(false)
-        },2000)
-
- 
-        
- 
-        
-
+        },1000)
+  
+        if(response.status===401){
+            setError("Invalid Credentials")
+        }
+        else{
+            const data = await response.json()
+            localStorage.setItem('token',data.token)
+            Navigate('/Posts')
+        }
     }
     
 
@@ -72,7 +75,7 @@ export function Login(){
                 
             ):(
                 <div className={logCSS.errorContainer}> 
-                <p>Invalid credentials</p>
+                <p>{error}</p>
                 </div>
             )}
         </div>

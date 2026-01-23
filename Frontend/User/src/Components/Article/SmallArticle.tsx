@@ -86,7 +86,7 @@ export function SmallArticle(){
                         </div>
                     </div>
                     <div className={CSS.articleContent} dangerouslySetInnerHTML={{ __html: data.text.trim() }} />
-                    <NavLink to="/All" className={({ isActive }) => isActive ? CSS.active : ''}>
+                    <NavLink to="/All" className={({ isActive }) => `${CSS.goBack} ${isActive ? CSS.active : ''}`}>
                         <FaArrowLeft/>
                         <div>go back</div>
                     </NavLink>

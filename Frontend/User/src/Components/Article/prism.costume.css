@@ -21,6 +21,13 @@
 .token.property {
     color: #40b4c4 !important;
 }
+
+code{
+    font-size: 1.3rem;
+}
+.language-javascript{
+    color: red;
+}
  
 
  
