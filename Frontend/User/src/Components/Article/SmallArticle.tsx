@@ -39,7 +39,7 @@ export function SmallArticle(){
     }
 
     async function getArticle(){
-        const response = await fetch(`http://localhost:3000/Posts/${Id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/${Id}`, {
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'

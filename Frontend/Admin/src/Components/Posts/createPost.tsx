@@ -53,7 +53,7 @@ export function CreatePost(){
         event.preventDefault()
         const content = editorRef.current.getContent()
         const token = localStorage.getItem('token')
-        const response = await fetch('http://localhost:3000/Posts',{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts`,{
             method:"POST",
             headers:{
                 'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export function CreatePost(){
             <input type="text" value={title}  onChange={handleTitleChange} required></input>
             <br></br><br></br>
         <Editor
-            apiKey='cqe7anygnlsrzao5tq6yr7bbkewgdyeshpu7j0clpyujjrb7'
+            apiKey={import.meta.env.VITE_API_KEY}
             onInit={(_, editor) => editorRef.current = editor}
             initialValue="<p>Start writing your post...</p>"
             init={{

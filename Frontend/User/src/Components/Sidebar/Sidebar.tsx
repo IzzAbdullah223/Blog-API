@@ -21,7 +21,7 @@ export function Sidebar(){
 
    
     async function getTags(){
-        const response = await fetch('http://localhost:3000/Posts/Tags',{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/Tags`,{
             method:"GET",
             headers:{'content-type':'application/json'}
         })

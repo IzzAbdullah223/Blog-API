@@ -31,7 +31,7 @@ export function Login(){
         if(name.trim()){
         }
         setLoading(true)
-        const response = await fetch('http://localhost:3000/Login',{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Login`,{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json'

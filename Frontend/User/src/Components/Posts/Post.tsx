@@ -47,7 +47,7 @@ export function Post(){
     async function getPosts(){
         setData(null)
 
-        const response = await fetch(`http://localhost:3000/Posts?sortBy=${sortBy}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}?sortBy=${sortBy}`, {
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
