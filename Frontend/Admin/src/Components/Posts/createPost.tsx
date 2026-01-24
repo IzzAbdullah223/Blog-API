@@ -93,7 +93,7 @@ export function CreatePost(){
             <br></br><br></br>
         <Editor
             apiKey='cqe7anygnlsrzao5tq6yr7bbkewgdyeshpu7j0clpyujjrb7'
-            onInit={(evt, editor) => editorRef.current = editor}
+            onInit={(_, editor) => editorRef.current = editor}
             initialValue="<p>Start writing your post...</p>"
             init={{
                  height: 500,

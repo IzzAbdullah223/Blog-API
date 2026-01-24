@@ -56,6 +56,7 @@ export function Post(){
         })
  
         const json = await response.json() as postData[]
+        console.log(json)
         setTimeout(()=>{
              setData(json)
         },2000)
