@@ -1,4 +1,4 @@
-import { useState,useRef } from "react"
+import { useState,useRef, useEffect } from "react"
 import { Editor } from '@tinymce/tinymce-react';
 import { useNavigate } from "react-router-dom";
  
@@ -13,6 +13,14 @@ export function CreatePost(){
     const [tags,setTags]= useState<string []>([])
     const [newTag,setTag] = useState("")
     const editorRef = useRef<any | null>(null);
+
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(!token){
+            navigate('/')
+        }
+    },[])
 
     function handleTitleChange(event:React.ChangeEvent<HTMLInputElement>){
         setTitle(event.target.value)
@@ -32,8 +40,6 @@ export function CreatePost(){
             setTags(t=>[...t,newTag])
             setTag("")
         }
-
-        console.log(tags)
  
     }
 

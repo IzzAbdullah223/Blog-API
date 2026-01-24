@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 
 import CSS from  './posts.module.css'
 
@@ -11,17 +11,27 @@ export function Posts(){
 
     }
 
-     
+     const navigate = useNavigate()
      const[data,setData] = useState<postData[] | null>(null)
+
+
+     useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(!token){
+            navigate('/')
+        }
+     },[])
      
     async function getPosts(){
         const response = await fetch('http://localhost:3000/Posts?sortBy=Admin',{
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
+ 
             }
         })
-        setData(await response.json())
+ 
+      setData(await response.json())
  
     }
 

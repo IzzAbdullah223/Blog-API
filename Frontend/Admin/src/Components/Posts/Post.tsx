@@ -12,6 +12,12 @@ export function Post(){
     const navgiate = useNavigate()
      
   
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(!token){
+            navgiate('/')
+        }
+    })
 
     async function deletePost(){
         
@@ -22,9 +28,10 @@ export function Post(){
             }
         })
 
-        console.log(reponse)
-
-        if(reponse.status==201){
+        if(reponse.status===403){
+            navgiate('/')
+        }
+        else if(reponse.status==201){
             navgiate('/Posts')
         }
 
@@ -39,6 +46,14 @@ export function Post(){
             }
         })
         setData(await response.json())
+
+        if(response.status===403){
+            navgiate('/')
+        }
+
+        else if(response.status===200){
+            navgiate('/Posts')
+        }
         
     }
 
@@ -51,8 +66,14 @@ export function Post(){
                 })
             })
 
-            console.log(response)
-            navgiate('/Posts')
+            if(response.status==403){
+                navgiate('/')
+            }
+
+            else if(response.status===201){
+                navgiate('/Posts')
+            }
+          
         }
 
     useEffect(()=>{
