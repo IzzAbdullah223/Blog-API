@@ -7,9 +7,7 @@ export async function getPosts(req, res) {
         return res.status(200).json(posts);
     }
     catch (error) {
-        return res.status(500).json({
-            Message: "Failed to fetch posts"
-        });
+        return res.status(200).json([]);
     }
 }
 export async function getPost(req, res) {
@@ -32,7 +30,7 @@ export async function createPost(req, res) {
         });
     }
     catch (err) {
-        res.status(500).json({ message: "Failed to create ost." });
+        res.status(500).json({ message: "Failed to create post." });
     }
 }
 export async function deletePost(req, res) {
@@ -94,9 +92,7 @@ export async function getTags(req, res) {
         return res.status(200).json(tags);
     }
     catch (err) {
-        res.status(500).json({
-            message: "Failed to fetch tags"
-        });
+        res.status(200).json([]);
     }
 }
 //# sourceMappingURL=postsController.js.map

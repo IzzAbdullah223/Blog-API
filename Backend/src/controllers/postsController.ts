@@ -9,9 +9,7 @@ export async function getPosts(req:Request,res:Response){
           return res.status(200).json(posts)
      }
      catch(error){
-         return res.status(500).json({
-               Message:"Failed to fetch posts"
-          })
+         return res.status(200).json([])
      }
  
 }
@@ -44,7 +42,7 @@ export async function createPost(req:Request<{},{},createPostBody>,res:Response)
      })
      }
      catch(err){
-          res.status(500).json({message:"Failed to create ost."})
+          res.status(500).json({message:"Failed to create post."})
      } 
 
    
@@ -121,9 +119,7 @@ export async function getTags(req:Request,res:Response){
           return res.status(200).json(tags)
      }
      catch(err){
-          res.status(500).json({
-               message:"Failed to fetch tags"
-          })
+          res.status(200).json([])
      }
 }
 
