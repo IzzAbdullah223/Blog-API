@@ -6,15 +6,15 @@
 
 .headerContainer{
     color: #c8bb97;
-    padding: 30px 55px;
-    margin: 0 40px;  /* 40px space on BOTH sides */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 840px;
+    flex-shrink: 0;
 }
 
 .headerContainer h1{
-    display: flex;
     font-size: 2.9rem;
-    margin-bottom: 25px;
-    padding-left: 2.2rem;
 }
 
 .headerContainer span{
@@ -25,12 +25,29 @@
 display: flex;
 justify-content: space-evenly;
 font-size: 1.6rem;
-padding-left: 10px;
+}
+
+@media (max-width:800px){
+    .selections{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .headerContainer h1{
+        display: flex;
+        justify-content: center;
+        font-size: 2.4rem;
+    }
+
+    .headerContainer{
+        width: fit-content;
+    }
 }
 
  
 
-
+ 
 
 /*Selections animations */
 .selections a{
@@ -76,6 +93,9 @@ padding-left: 10px;
     background-color: #689d69;
     border-radius: 2px;
 }
+
+
+ 
  
  
  

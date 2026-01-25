@@ -7,20 +7,15 @@
 .Container{
     display: flex;
     justify-content: center;
-    /*outline: blue solid;*/
-    /*padding: 20px;*/
-    color: #d79721;
 }
 
 .ArticleContainer{
-    width: 930px;
    background-color: #383838;
-   padding: 40px 30px;
    display: flex;
    flex-direction: column;
    border-radius: 5px;
    gap: 20px;
-   /*gap: 60px;*/
+   color: #d79721;
 }
 
 .Top{
@@ -40,9 +35,7 @@ gap: 10px;
 
 .ArticleContainer h1{
     font-size: 4rem;
-    color: #d79821;
     line-height: 1.1;
-    margin-bottom: px;
 }
 
 
@@ -72,7 +65,6 @@ gap: 10px;
     text-decoration: none;
     font-size: 1.3rem;
     gap: 10px;
-    color: #d79721;
     cursor: pointer;
     width: fit-content;
 }
@@ -83,54 +75,8 @@ gap: 10px;
 
 
 
-
-
-.articleContent P{
-    color: #d79721;
-    font-size: 1.25em;
-    font-weight: normal;
-}
-
-.articleContent ol{
-    padding-left: 2.8rem;
-}
-.articleContent ol li::marker{
-    font-size: 1.2rem;
-    color: #d79721;
-}
-
-.articleContent ol li{
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    
-}
-
-.articleContent ul{
-    padding-left: 2.8rem;
-}
-
-.articleContent ul li{
-    font-size: 1.25em;
-    margin-bottom: 20px;
-    color: #d79721;
-}
-.articleContent ul li::marker{
-    font-size: 1.2rem;
-    color: #d79721;
-}
-
-.articleContent h3{
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-   
-}
-
-
-
-
 .numberOfComments{
     margin-top: 20px;
-     color: #d79721;
      font-size: 2.3rem;
 }
 
@@ -147,11 +93,9 @@ gap: 10px;
 
 .commentPost:hover{
     background-color: #777777;
-
 }
 
 .commentsContainer{
-    color: #da930f;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -160,34 +104,11 @@ gap: 10px;
 }
 
  
- 
 .commentHead{
 margin-bottom: 8px;
 }
 
-.article-content pre[class*="language-"] {
-    background: #2d2d2d;
-    color: #ccc;
-    padding: 1em;
-    border-radius: 5px;
-    overflow-x: auto;
-    font-family: 'Courier New', monospace;
-}
-
-.article-content code[class*="language-"] {
-    background: transparent;
-    color: inherit;
-}
-
-/* If TinyMCE uses different classes */
-.article-content pre.language-javascript,
-.article-content pre.language-html {
-    background: #2d2d2d;
-    color: #ccc;
-    padding: 1em;
-    border-radius: 5px;
-    color: red;
-}
+ 
 
 
 

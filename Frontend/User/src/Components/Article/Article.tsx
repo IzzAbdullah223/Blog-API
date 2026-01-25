@@ -2,7 +2,6 @@ import { useParams,NavLink } from "react-router-dom"
 import { useEffect, useState } from "react"
 import CSS from './art.module.css'
 import { FaGlasses,FaArrowLeft,FaRegCommentAlt  } from "react-icons/fa";
-import './prism.costume.css'
 import { Modal } from "../Modal/Modal";
 import { formatDate,formatDate2 } from "../../utils/dateFormatter";
 import { Loading } from "../Loading/Loading";
@@ -56,12 +55,6 @@ export function SmallArticle(){
     useEffect(()=>{
         getArticle()
     },[Id,refreshTrigger])
-    
-    useEffect(() => {
-        if (window.Prism && data) {
-            window.Prism.highlightAll();
-        }
-    }, [data,modal]);
     
     return( 
         <div className={CSS.Container}> 

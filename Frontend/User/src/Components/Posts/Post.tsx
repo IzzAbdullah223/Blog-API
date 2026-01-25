@@ -1,4 +1,4 @@
-import './prism.costume.css'
+
 import postCSS from './post.module.css'
 import { useEffect, useState } from 'react';
 import { FaRegCommentAlt } from "react-icons/fa";
@@ -31,14 +31,6 @@ import { Loading } from '../Loading/Loading';
         comment:comments[]
     }
 
-declare global {
-  interface Window {
-    Prism: any;
-  }
-}
-
- 
-
 export function Post(){
 
     const{sortBy} = useParams()
@@ -47,7 +39,7 @@ export function Post(){
     async function getPosts(){
         setData(null)
 
-        const response = await fetch(`${import.meta.env.VITE_API_URL}?sortBy=${sortBy}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts?sortBy=${sortBy}`, {
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
@@ -73,13 +65,6 @@ export function Post(){
     useEffect(()=>{
         getPosts()
     },[sortBy])
-
-
-    useEffect(() => {
-    if (window.Prism && data) {
-        window.Prism.highlightAll();
-    }
-}, [data]);
    
 return (
   <div className={postCSS.PostLoadWrapper}>
@@ -112,6 +97,6 @@ return (
 )
 }
 
-      //  {data && <div dangerouslySetInnerHTML={{ __html: data[0].text }} />}
+ 
 
     
