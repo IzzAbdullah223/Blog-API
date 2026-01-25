@@ -5,9 +5,10 @@
 }
 
 .Container{
-    display: flex;
-    justify-content: center;
+    width:940px ;
 }
+
+ 
 
 .ArticleContainer{
    background-color: #383838;
@@ -16,6 +17,7 @@
    border-radius: 5px;
    gap: 20px;
    color: #d79721;
+   padding: 40px;
 }
 
 .Top{
@@ -59,6 +61,58 @@ gap: 10px;
      justify-content: flex-end;
      font-size: 1.3rem;
 }
+
+.articleContent p{
+    color: #d79721;
+    font-size: 1.25rem;
+    font-weight: normal;
+}
+
+.articleContent h3{
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.articleContent h2{
+    margin-bottom: 20px;
+}
+
+.articleContent ol{
+    font-size: 1.3rem;
+    padding-left: 2rem;
+}
+
+.articleContent ol{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.articleContent ul{
+    font-size: 1.3rem;
+    margin: 30px;
+}
+
+.articleContent pre{
+    background-color: #27212e;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+ 
+.articleContent a{
+    text-decoration: none;
+    color: #458587;
+    font-weight: 500;
+}
+
+.articleContent a:hover{
+    color: #55b3b6;
+}
+
+
+ 
+
 .goBack{
     display: flex;
     align-items: center;
@@ -67,12 +121,12 @@ gap: 10px;
     gap: 10px;
     cursor: pointer;
     width: fit-content;
+    color: inherit;
 }
 
 .goBack:hover{
    color: #689d69; 
 }
-
 
 
 .numberOfComments{
@@ -89,6 +143,7 @@ gap: 10px;
     padding: 15px;
     border-radius: 4px;
     cursor: pointer;
+    color: #c8bb97;
 }
 
 .commentPost:hover{
@@ -112,4 +167,12 @@ margin-bottom: 8px;
 
 
 
- 
+ @media(max-width:800px){
+    .Container{
+        width: 100%;
+    }
+    .ArticleContainer h1{
+         
+        font-size: 2.15rem;
+    }
+}

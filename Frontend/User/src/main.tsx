@@ -4,9 +4,6 @@ import { createBrowserRouter,RouterProvider,Navigate } from 'react-router-dom'
 import { Layout } from './Components/Layout/Layout'
 import { Post } from './Components/Posts/Post'
 import { SmallArticle } from './Components/Article/Article'
- 
- 
-
 const router = createBrowserRouter([
   {
     path:"/",

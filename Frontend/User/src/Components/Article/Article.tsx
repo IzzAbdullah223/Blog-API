@@ -5,6 +5,7 @@ import { FaGlasses,FaArrowLeft,FaRegCommentAlt  } from "react-icons/fa";
 import { Modal } from "../Modal/Modal";
 import { formatDate,formatDate2 } from "../../utils/dateFormatter";
 import { Loading } from "../Loading/Loading";
+import Prism from 'prismjs'
 
 export function SmallArticle(){
  
@@ -38,19 +39,25 @@ export function SmallArticle(){
     }
 
     async function getArticle(){
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/${Id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${Id}`, {
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
             }
         })
-
+        console.log(response)
         const data = await response.json()
         setTimeout(()=>{
             setData(data)
         },3000)
          
     }
+
+    useEffect(()=>{
+        if(data){
+            Prism.highlightAll();
+        }
+    },[data])
     
     useEffect(()=>{
         getArticle()

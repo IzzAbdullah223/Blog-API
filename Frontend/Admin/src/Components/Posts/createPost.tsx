@@ -94,7 +94,7 @@ export function CreatePost(){
         <Editor
             apiKey={import.meta.env.VITE_API_KEY}
             onInit={(_, editor) => editorRef.current = editor}
-            initialValue="<p>Start writing your post...</p>"
+            initialValue=""
             init={{
                  height: 500,
                  menubar: false,
@@ -107,6 +107,7 @@ export function CreatePost(){
                          'bold italic forecolor backcolor | alignleft aligncenter ' +
                          'alignright alignjustify | bullist numlist outdent indent | ' +
                          'codesample | removeformat | help',
+                codesample_global_prismjs: true,
                 content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }'
             }}
           />
