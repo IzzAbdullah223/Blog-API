@@ -11,22 +11,24 @@ export function Post(){
     const [data,setData]= useState<postData | null>(null)
     const navgiate = useNavigate()
      
-  
+  const token = localStorage.getItem('token')
     useEffect(()=>{
-        const token = localStorage.getItem('token')
+         
         if(!token){
             navgiate('/')
         }
     })
 
     async function deletePost(){
-        
         const reponse = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
             method:"DELETE",
             headers:{
-                'Content-Type':"application/json"
+                'Content-Type':"application/json",
+                'Authorization': `Bearer ${token}`
             }
         })
+
+        console.log(reponse)
 
         if(reponse.status===403){
             navgiate('/')
@@ -42,17 +44,20 @@ export function Post(){
         const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
             method:"GET",
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+                
             }
         })
         setData(await response.json())
+
 
         if(response.status===403){
             navgiate('/')
         }
 
         else if(response.status===200){
-            navgiate('/Posts')
+            navgiate(`/Posts/${PostId}`)
         }
         
     }
@@ -60,7 +65,9 @@ export function Post(){
         async function updatePublish(){
             const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
                 method:"PUT",
-                headers:{'Content-Type': 'application/json'},
+                headers:{'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                                                        },
                 body: JSON.stringify({
                     publishValue:data?.published
                 })
@@ -78,7 +85,7 @@ export function Post(){
 
     useEffect(()=>{
         getPost()
-    },[data])
+    },[])
     
     return(<div>
             <button onClick={deletePost}>Delete Post</button>
