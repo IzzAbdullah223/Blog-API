@@ -10,7 +10,8 @@ import { postRoute } from './routes/post.js'
 const allowedOrigins = [
   'http://localhost:5173',  
   'http://localhost:5174',
-  'https://blog-api-user-c59zeu9zn-izzabdullah223s-projects.vercel.app'  
+  'https://blog-api-user-c59zeu9zn-izzabdullah223s-projects.vercel.app',
+  'https://blog-api-user-three.vercel.app'
 ];
 
 
@@ -20,6 +21,7 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("Blocked")
       callback(new Error('Not allowed by CORS'));
     }
   },
