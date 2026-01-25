@@ -6,7 +6,6 @@
 
 .PostLoadWrapper{
 width: 940px;
-outline: green solid;
 }
 
 @media (max-width:800px){
@@ -18,7 +17,6 @@ outline: green solid;
 display: grid;
 grid-template-columns: repeat(3,300px);
 gap: 20px;
-outline: blue solid;
 width: fit-content;
 }
 
@@ -46,7 +44,7 @@ width: fit-content;
     color: inherit;
     padding: 25px;
     border-radius: 5px;
-    gap: 15p;
+    gap: 15px;
 }
 
 .postContainer::before {

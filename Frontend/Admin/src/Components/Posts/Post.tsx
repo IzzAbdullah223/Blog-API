@@ -21,7 +21,7 @@ export function Post(){
 
     async function deletePost(){
         
-        const reponse = await fetch(`${import.meta.env.VITE_API_URL}/${PostId}`,{
+        const reponse = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
             method:"DELETE",
             headers:{
                 'Content-Type':"application/json"
@@ -39,7 +39,7 @@ export function Post(){
     
 
     async function getPost(){
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/${PostId}`,{
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export function Post(){
     }
 
         async function updatePublish(){
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/${PostId}`,{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${PostId}`,{
                 method:"PUT",
                 headers:{'Content-Type': 'application/json'},
                 body: JSON.stringify({
