@@ -2,6 +2,7 @@ import {} from 'express';
 import jwt, {} from 'jsonwebtoken';
 export async function LogInPost(req, res) {
     const user = req.user;
+    console.log("Test");
     jwt.sign({ user: user }, process.env.SECRET_KEY, { expiresIn: '7d' }, (err, token) => {
         res.json({
             token
