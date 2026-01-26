@@ -45,7 +45,6 @@ export function SmallArticle(){
                 'Content-Type': 'application/json'
             }
         })
-        console.log(response)
         const data = await response.json()
         setTimeout(()=>{
             setData(data)

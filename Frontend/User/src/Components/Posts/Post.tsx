@@ -48,7 +48,6 @@ export function Post(){
         })
  
         const json = await response.json() as postData[]
-        console.log(json)
         setTimeout(()=>{
              setData(json)
         },2000)
@@ -69,10 +68,10 @@ export function Post(){
 return (
   <div className={postCSS.PostLoadWrapper}>
     {!data ? (
-      // First return - when no data
+ 
       <Loading/>
     ) : (
-      // Second return - when data exists
+  
       <div className={postCSS.Posts}>
         {data.map((post)=>(
           <Link key={post.id} to={`/Article/${post.id}`} className={postCSS.postContainer}> 

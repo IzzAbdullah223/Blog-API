@@ -31,7 +31,7 @@ export function Modal({toggleModal, onCommentAdded}:ModalProps){
             return
         }
          toggleModal()
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/${Id}`,{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${Id}`,{
             method:"POST",
             headers: {'content-type':'application/json'},
             body: JSON.stringify({
