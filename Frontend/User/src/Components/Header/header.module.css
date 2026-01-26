@@ -56,6 +56,7 @@ font-size: 1.6rem;
     cursor: pointer;
     font-weight: 500;
     position: relative;
+    color: #c8bb97; 
 }
 
 .selections a:visited {
