@@ -125,6 +125,12 @@ svg:hover {
 
 .randomArticle{
     cursor: pointer;
+    color: #c8bb97;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+   
+    gap: 10px;
 }
 
 .bar>div>a{

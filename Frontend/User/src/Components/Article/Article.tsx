@@ -9,6 +9,7 @@ import Prism from 'prismjs'
 
 export function SmallArticle(){
  
+
     interface tags{
         name:string
     }
@@ -33,22 +34,38 @@ export function SmallArticle(){
     const[modal,setModal]= useState(false)
     const[refreshTrigger, setRefreshTrigger] = useState(0)
     const{Id} = useParams()
-    
+
     const toggleModal = () =>{
          setModal(!modal)
     }
 
     async function getArticle(){
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${Id}`, {
+        let response: Response;
+
+        
+        if(Id){ 
+          response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/${Id}`, {
             method:"GET",
             headers:{
                 'Content-Type': 'application/json'
             }
         })
+        }
+        else{
+            response = await fetch(`${import.meta.env.VITE_API_URL}/Posts/Random`,{
+                method:"GET",
+                headers:{
+                    'Content-type': 'application/json'
+                }
+            })
+             
+        }
+        
         const data = await response.json()
+        
         setTimeout(()=>{
             setData(data)
-        },3000)
+        },2000)
          
     }
 

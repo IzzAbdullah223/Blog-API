@@ -1,6 +1,7 @@
 import { type Request, type Response } from 'express';
 export declare function getPosts(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
 export declare function getPost(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
+export declare function getRandom(req: Request, res: Response): Promise<Response<any, Record<string, any>>>;
 interface createPostBody {
     title: string;
     text: string;

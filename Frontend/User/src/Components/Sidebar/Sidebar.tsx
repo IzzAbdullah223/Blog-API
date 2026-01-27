@@ -29,7 +29,6 @@ export function Sidebar(){
         setData(json)
     }
 
-
     function handleSearchInput(e:React.ChangeEvent<HTMLInputElement>){
         setSearch(e.target.value)
     }
@@ -79,12 +78,12 @@ export function Sidebar(){
                 </NavLink>
 
 
-                <div className={`${sideCSS.bar} ${sideCSS.randomArticle}`}  >
+                <NavLink to={'/Article/Random'} className={`${sideCSS.bar} ${sideCSS.randomArticle}`}>
                     <div> 
                         <div>Random article</div>
                         <FaRandom></FaRandom>
                     </div>
-                </div>
+                </NavLink>
 
 
                 <div className={sideCSS.bar}>

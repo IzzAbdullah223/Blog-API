@@ -64,6 +64,18 @@ export async function getPost(id) {
         include: { tag: true, comment: true }
     });
 }
+export async function getRandomPost() {
+    const count = await prisma.post.count({
+        where: { published: true }
+    });
+    const randomIndex = Math.floor(Math.random() * count);
+    const post = await prisma.post.findFirst({
+        where: { published: true },
+        skip: randomIndex,
+        include: { tag: true, comment: true }
+    });
+    return post;
+}
 export async function deletePost(id) {
     await prisma.post.delete({
         where: { id: id }

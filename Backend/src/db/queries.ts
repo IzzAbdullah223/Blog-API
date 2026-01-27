@@ -76,6 +76,23 @@ export async function getPost(id:number){
     })
 }
 
+export async function getRandomPost(){
+   
+    const count = await prisma.post.count({
+        where:{published:true}
+    })
+
+    const randomIndex = Math.floor(Math.random()*count)
+
+    const post = await prisma.post.findFirst({
+        where: {published:true},
+        skip: randomIndex,
+        include:{tag:true,comment:true}
+    })
+
+    return post
+}
+
 
 export async function deletePost(id:number){
      await prisma.post.delete({

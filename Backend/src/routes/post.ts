@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getPosts,createPost,deletePost,getPost,updatePublish,commentPost,getTags } from "../controllers/postsController.js";
+import { getPosts,createPost,deletePost,getPost,updatePublish,commentPost,getTags,getRandom} from "../controllers/postsController.js";
 import { verifyToken } from "../controllers/authController.js";
 
 
@@ -10,7 +10,9 @@ postRoute.get('/Posts',getPosts, )
 
 postRoute.get('/Posts/Tags',getTags)
 
-postRoute.get('/Posts/:PostId',getPost)  
+postRoute.get('/Posts/Random',getRandom)
+
+postRoute.get('/Posts/:PostId',getPost)
 
 postRoute.post('/Posts',verifyToken,createPost) 
 

@@ -27,9 +27,6 @@ export function Post(){
                 'Authorization': `Bearer ${token}`
             }
         })
-
-        console.log(reponse)
-
         if(reponse.status===403){
             navgiate('/')
         }

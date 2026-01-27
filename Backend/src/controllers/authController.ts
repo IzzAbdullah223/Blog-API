@@ -18,7 +18,6 @@ interface TokenPayload {
 
 export async function LogInPost(req:Request,res:Response){
         const user=req.user
-        console.log("Test")
         jwt.sign({user:user},process.env.SECRET_KEY as Secret,{expiresIn: '7d'},(err: Error | null, token: string | undefined)=>{
           res.json({
                 token

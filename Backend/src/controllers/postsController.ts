@@ -26,6 +26,18 @@ export async function getPost(req:Request,res:Response){ // for viewing a single
           })
      }
 }
+
+export async function getRandom(req:Request,res:Response){
+     try{
+          const post = await db.getRandomPost()
+          return res.status(200).json(post)
+     }
+     catch(err){
+          return res.status(500).json({
+               Message: "Failed to fetch post"
+          })
+     }
+}
  
 
 interface createPostBody{

@@ -29,6 +29,27 @@ export declare function getPost(id: number): Promise<({
     readTime: string;
     authorId: number;
 }) | null>;
+export declare function getRandomPost(): Promise<({
+    comment: {
+        id: number;
+        name: string;
+        text: string;
+        commentedAt: Date;
+        postId: number;
+    }[];
+    tag: {
+        id: number;
+        name: string;
+    }[];
+} & {
+    id: number;
+    title: string;
+    text: string;
+    published: boolean;
+    publishedAt: Date;
+    readTime: string;
+    authorId: number;
+}) | null>;
 export declare function deletePost(id: number): Promise<void>;
 export declare function publishPost(id: number): Promise<void>;
 export declare function unPublishPost(id: number): Promise<void>;

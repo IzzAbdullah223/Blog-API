@@ -22,6 +22,17 @@ export async function getPost(req, res) {
         });
     }
 }
+export async function getRandom(req, res) {
+    try {
+        const post = await db.getRandomPost();
+        return res.status(200).json(post);
+    }
+    catch (err) {
+        return res.status(500).json({
+            Message: "Failed to fetch post"
+        });
+    }
+}
 export async function createPost(req, res) {
     try {
         await db.createPost(req.body.title, req.body.text, req.body.readTime, req.body.tags);
