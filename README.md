@@ -1,7 +1,28 @@
+
 # Blog-API
 ---
 
 A RESTful API that provides a convenient and secure way to access and manage your blog's data.
+
+
+# Desktop
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+# Mobile
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+
+# Admin
+
+![alt text](image-5.png)
 
 ## Features
 ---
@@ -31,13 +52,14 @@ The source code for the blog-client frontend can be found at  https://github.com
 ---
 | Endpoint         | Method | Description                                      |
 |-----------------|--------|--------------------------------------------------|
-| /login           | POST   | Login as author                                  |
-| /Posts           | GET    | Retrieve a list of all articles for client and admin board |
+| /login           | POST   | Login as author/Admin                                |
+| /Posts           | GET    | Retrieve a list of all articles for client and admin/Author board |
 | /Posts/Tags      | GET    | Retrieve a list of all tags for client          |
 | /Posts/random    | GET    | Retrieve a random article                        |
 | /Posts/:PostId   | GET    | Retrieve a post by ID for client and admin board|
 | /Posts/          | POST   | Create a new post as an admin/author            |
 | /Posts/:PostId   | POST   | Comment on a post as a client                   |
-| /Posts/:PostId   | PUT    | Update an existing post (publish, edit tags) as admin |
-| /Posts/:PostId   | DELETE | Delete a post as admin                           |
+| /Posts/:PostId   | PUT    | Update an existing post (publish, edit tags) as admin/Author |
+| /Posts/:PostId   | DELETE | Delete a post as admin/Author                           |
+
   
