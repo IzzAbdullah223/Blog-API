@@ -11,7 +11,7 @@ const allowedOrigins = [
   'http://localhost:5173',  
   'http://localhost:5174',
   'https://blog-api-user-c59zeu9zn-izzabdullah223s-projects.vercel.app',
-  'blog-api-nine-theta.vercel.app',
+  'https://blog-api-nine-theta.vercel.app',
   'https://blog-admin-navy.vercel.app',
 ];
 
